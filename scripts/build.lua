@@ -1,17 +1,13 @@
 -- ============================================================
--- Resonance v4.0 — scripts/build.lua
--- Собирает все файлы src/** в один dist/resonance.lua
--- Запуск: lua scripts/build.lua
+-- Resonance v4.0 — scripts/build.lua (FIXED)
+-- Оборачивает каждый модуль в IIFE чтобы return работал
 -- ============================================================
 
-local ROOT      = "./"
-local SRC       = ROOT .. "src/"
-local DIST      = ROOT .. "dist/"
-local OUTPUT    = DIST .. "resonance.lua"
+local ROOT   = "./"
+local SRC    = ROOT .. "src/"
+local DIST   = ROOT .. "dist/"
+local OUTPUT = DIST .. "resonance.lua"
 
--- ============================================================
--- УТИЛИТЫ
--- ============================================================
 local function fileExists(path)
     local f = io.open(path, "r")
     if f then f:close() return true end
@@ -28,54 +24,24 @@ end
 
 local function writeFile(path, content)
     local f = io.open(path, "w")
-    if not f then
-        error("Не могу открыть " .. path .. " для записи")
-    end
+    if not f then error("Не могу открыть " .. path) end
     f:write(content)
     f:close()
 end
 
-local function listDir(path)
-    local cmd
-    local sep = package.config:sub(1,1)
-    if sep == "\\" then
-        cmd = 'dir /b "' .. path .. '" 2>nul'
-    else
-        cmd = 'ls -1 "' .. path .. '" 2>/dev/null'
-    end
-    local handle = io.popen(cmd)
-    local result = {}
-    if handle then
-        for line in handle:lines() do
-            table.insert(result, line)
-        end
-        handle:close()
-    end
-    return result
-end
-
--- ============================================================
--- МАНИФЕСТ — все файлы для сборки в порядке загрузки
--- ============================================================
 local MANIFEST = {
     -- CORE
-    "core/utils.lua",
-    "core/loop.lua",
-    "core/keybind.lua",
-    "core/config.lua",
-    "core/rgb.lua",
-    "core/manifest.lua",
+    "core/utils.lua", "core/loop.lua", "core/keybind.lua",
+    "core/config.lua", "core/rgb.lua", "core/manifest.lua",
     "core/remote_resolver.lua",
 
     -- SETTINGS
     "core/settings/init.lua",
 
     -- UI
-    "ui/theme.lua",
-    "ui/notifications.lua",
-    "ui/build.lua",
+    "ui/theme.lua", "ui/notifications.lua", "ui/build.lua",
 
-    -- MODULES: Combat (40)
+    -- Combat (40)
     "modules/combat/func_001_super_throw.lua",
     "modules/combat/func_002_massless_grab.lua",
     "modules/combat/func_003_freeze_grab.lua",
@@ -117,7 +83,7 @@ local MANIFEST = {
     "modules/combat/func_039_forcefield_off_all.lua",
     "modules/combat/func_040_character_reset.lua",
 
-    -- MODULES: Auras (20)
+    -- Auras (20)
     "modules/auras/func_041_fling_aura.lua",
     "modules/auras/func_042_kill_aura.lua",
     "modules/auras/func_043_freeze_aura.lua",
@@ -139,7 +105,7 @@ local MANIFEST = {
     "modules/auras/func_059_shrink_aura.lua",
     "modules/auras/func_060_grow_aura.lua",
 
-    -- MODULES: Protection (20)
+    -- Protection (20)
     "modules/protection/func_061_anti_grab.lua",
     "modules/protection/func_062_anti_fling.lua",
     "modules/protection/func_063_anti_freeze.lua",
@@ -161,7 +127,7 @@ local MANIFEST = {
     "modules/protection/func_079_god_mode.lua",
     "modules/protection/func_080_rejoin_on_damage.lua",
 
-    -- MODULES: Targeting (20)
+    -- Targeting (20)
     "modules/targeting/func_081_loop_kill.lua",
     "modules/targeting/func_082_loop_burn.lua",
     "modules/targeting/func_083_loop_fling.lua",
@@ -183,7 +149,7 @@ local MANIFEST = {
     "modules/targeting/func_099_steal_target_tools.lua",
     "modules/targeting/func_100_copy_target_skin.lua",
 
-    -- MODULES: Movement (20)
+    -- Movement (20)
     "modules/movement/func_101_infinite_jump.lua",
     "modules/movement/func_102_noclip.lua",
     "modules/movement/func_103_fly.lua",
@@ -205,7 +171,7 @@ local MANIFEST = {
     "modules/movement/func_119_tp_cursor.lua",
     "modules/movement/func_120_reset_speed.lua",
 
-    -- MODULES: Visuals (20)
+    -- Visuals (20)
     "modules/visuals/func_121_esp_boxes.lua",
     "modules/visuals/func_122_esp_tracers.lua",
     "modules/visuals/func_123_player_info.lua",
@@ -227,7 +193,7 @@ local MANIFEST = {
     "modules/visuals/func_139_restore_lighting.lua",
     "modules/visuals/func_140_disable_shadows.lua",
 
-    -- MODULES: Server (20)
+    -- Server (20)
     "modules/server/func_141_rejoin.lua",
     "modules/server/func_142_server_hop.lua",
     "modules/server/func_143_join_smallest.lua",
@@ -249,7 +215,7 @@ local MANIFEST = {
     "modules/server/func_159_unlock_fps.lua",
     "modules/server/func_160_show_fps.lua",
 
-    -- MODULES: Utility (20)
+    -- Utility (20)
     "modules/utility/func_161_anti_afk.lua",
     "modules/utility/func_162_auto_claim_cash.lua",
     "modules/utility/func_163_cash_magnet.lua",
@@ -271,7 +237,7 @@ local MANIFEST = {
     "modules/utility/func_179_save_config.lua",
     "modules/utility/func_180_wipe_cache.lua",
 
-    -- MODULES: Trolling (20)
+    -- Trolling (20)
     "modules/trolling/func_181_music_play.lua",
     "modules/trolling/func_182_reverse_controls.lua",
     "modules/trolling/func_183_fling_random_aura.lua",
@@ -293,7 +259,7 @@ local MANIFEST = {
     "modules/trolling/func_199_lightning_self.lua",
     "modules/trolling/func_200_dance_all.lua",
 
-    -- MODULES: Animations (25)
+    -- Animations (25)
     "modules/animations/func_201_play_dance.lua",
     "modules/animations/func_202_play_wave.lua",
     "modules/animations/func_203_play_point.lua",
@@ -320,7 +286,7 @@ local MANIFEST = {
     "modules/animations/func_224_anim_speed_up.lua",
     "modules/animations/func_225_anim_slow_down.lua",
 
-    -- MODULES: Kick (50)
+    -- Kick (50)
     "modules/kick/func_226_kick_all.lua",
     "modules/kick/func_227_kick_closest.lua",
     "modules/kick/func_228_kick_random.lua",
@@ -380,7 +346,7 @@ local MANIFEST = {
 -- СБОРКА
 -- ============================================================
 print("============================================")
-print("Resonance v4.0 — Build")
+print("Resonance v4.0 — Build (FIXED)")
 print("============================================")
 
 local out = {}
@@ -390,7 +356,8 @@ table.insert(out, "-- Source: https://github.com/a32435629-collab/resonance")
 table.insert(out, "-- Built: " .. os.date("%Y-%m-%d %H:%M:%S"))
 table.insert(out, "-- ============================================================")
 table.insert(out, "")
-table.insert(out, "local __RESONANCE_MODULES = {}")
+table.insert(out, "-- Каждый модуль обёрнут в IIFE, чтобы return работал корректно")
+table.insert(out, "local __RESONANCE = {}")
 table.insert(out, "")
 
 local loaded = 0
@@ -401,25 +368,83 @@ for i, relPath in ipairs(MANIFEST) do
     if fileExists(fullPath) then
         local content = readFile(fullPath)
         if content then
+            -- Убираем возможные \r\n и BOM
+            content = content:gsub("\r\n", "\n"):gsub("^\239\187\191", "")
+
+            -- Оборачиваем модуль в IIFE:
+            -- return внутри функции работает, результат сохраняется
+            local moduleVar = "__RESONANCE[" .. string.format("%q", relPath) .. "] = (function()"
             table.insert(out, "-- === " .. relPath .. " ===")
+            table.insert(out, moduleVar)
             table.insert(out, content)
+            table.insert(out, "end)()")
             table.insert(out, "")
             loaded = loaded + 1
         else
-            print("  [FAIL] " .. relPath .. " (не читается)")
+            print("  [FAIL] " .. relPath)
             failed = failed + 1
         end
     else
-        print("  [SKIP] " .. relPath .. " (не найден)")
+        print("  [SKIP] " .. relPath)
         failed = failed + 1
     end
 end
 
 -- ============================================================
--- ЗАПУСК ЧЕРЕЗ INIT
+-- ЗАПУСК INIT ЛОГИКИ
 -- ============================================================
+table.insert(out, "-- ============================================================")
+table.insert(out, "-- Инициализация: собираем Registry из загруженных модулей")
+table.insert(out, "-- ============================================================")
 table.insert(out, "")
-table.insert(out, "-- Авто-запуск через init логику")
+table.insert(out, "local function getMod(path)")
+table.insert(out, "    return __RESONANCE[path]")
+table.insert(out, "end")
+table.insert(out, "")
+table.insert(out, "_G.ResonanceUtils     = getMod('core/utils.lua')")
+table.insert(out, "_G.ResonanceLoop      = getMod('core/loop.lua')")
+table.insert(out, "_G.ResonanceKeybind   = getMod('core/keybind.lua')")
+table.insert(out, "_G.ResonanceConfig    = getMod('core/config.lua')")
+table.insert(out, "_G.ResonanceRGB       = getMod('core/rgb.lua')")
+table.insert(out, "_G.ResonanceManifest  = getMod('core/manifest.lua')")
+table.insert(out, "_G.ResonanceResolver  = getMod('core/remote_resolver.lua')")
+table.insert(out, "_G.ResonanceSettings  = getMod('core/settings/init.lua')")
+table.insert(out, "")
+table.insert(out, "-- Registry: категория → массив модулей")
+table.insert(out, "local Registry = {")
+table.insert(out, "    Combat = {}, Auras = {}, Protection = {}, Targeting = {},")
+table.insert(out, "    Movement = {}, Visuals = {}, Server = {}, Utility = {},")
+table.insert(out, "    Trolling = {}, Animations = {}, Kick = {}")
+table.insert(out, "}")
+table.insert(out, "for _, path in ipairs({")
+-- Вставляем пути всех модулей для Registry
+for _, relPath in ipairs(MANIFEST) do
+    if relPath:sub(1, 8) == "modules/" then
+        table.insert(out, "    " .. string.format("%q", relPath) .. ",")
+    end
+end
+table.insert(out, "}) do")
+table.insert(out, "    local mod = getMod(path)")
+table.insert(out, "    if mod then")
+table.insert(out, "        local cat = path:match('^modules/([^/]+)/')")
+table.insert(out, "        if cat then")
+table.insert(out, "            local key = cat:sub(1,1):upper() .. cat:sub(2)")
+table.insert(out, "            if Registry[key] then table.insert(Registry[key], mod) end")
+table.insert(out, "        end")
+table.insert(out, "    end")
+table.insert(out, "end")
+table.insert(out, "_G.ResonanceRegistry = Registry")
+table.insert(out, "")
+table.insert(out, "-- UI")
+table.insert(out, "pcall(function()")
+table.insert(out, "    local uiBuild = getMod('ui/build.lua')")
+table.insert(out, "end)")
+table.insert(out, "")
+table.insert(out, "-- Runtime")
+table.insert(out, "pcall(function()")
+table.insert(out, "    local rt = getMod('runtime.lua')")
+table.insert(out, "end)")
+table.insert(out, "")
 table.insert(out, "print('============================================')")
 table.insert(out, "print('[Resonance] Bundled script loaded')")
 table.insert(out, "print('[Resonance] Modules: " .. loaded .. " | Failed: " .. failed .. "')")
