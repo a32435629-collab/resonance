@@ -1,7 +1,7 @@
 -- ============================================================
 -- Resonance v4.0 — Auto-generated bundled script
 -- Source: https://github.com/a32435629-collab/resonance
--- Built: 2026-10-03 10:07:40
+-- Built: 2026-10-03 10:13:48
 -- ============================================================
 
 -- Каждый модуль обёрнут в IIFE, чтобы return работал корректно
@@ -635,13 +635,16 @@ function Resolver.findGrabRemotes()
     return Resolver.findAll("grab")
 end
 
+-- ИСПРАВЛЕНО: vararg собирается в args до pcall,
+-- потому что внутри анонимной функции ... недоступен
 function Resolver.fire(remote, ...)
     if not remote then return false end
+    local args = {...}
     local ok = pcall(function()
         if remote:IsA("RemoteEvent") then
-            remote:FireServer(...)
+            remote:FireServer(table.unpack(args))
         elseif remote:IsA("RemoteFunction") then
-            remote:InvokeServer(...)
+            remote:InvokeServer(table.unpack(args))
         end
     end)
     return ok
@@ -663,6 +666,7 @@ function Resolver.dump()
 end
 
 return Resolver
+
 end)()
 
 -- === core/settings/init.lua ===
