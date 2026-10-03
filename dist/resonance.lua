@@ -1,12 +1,14 @@
 -- ============================================================
 -- Resonance v4.0 — Auto-generated bundled script
 -- Source: https://github.com/a32435629-collab/resonance
--- Built: 2026-10-03 09:51:58
+-- Built: 2026-10-03 10:06:41
 -- ============================================================
 
-local __RESONANCE_MODULES = {}
+-- Каждый модуль обёрнут в IIFE, чтобы return работал корректно
+local __RESONANCE = {}
 
 -- === core/utils.lua ===
+__RESONANCE["core/utils.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/utils.lua
 -- Утилиты: персонаж, игроки, фильтры, физика, уведомления
@@ -182,8 +184,10 @@ function Utils.isKeyDown(key)
 end
 
 return Utils
+end)()
 
 -- === core/loop.lua ===
+__RESONANCE["core/loop.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/loop.lua
 -- Менеджер циклов: start / stop / conditional
@@ -249,8 +253,10 @@ function Loop.awaitCondition(condition, timeout)
 end
 
 return Loop
+end)()
 
 -- === core/keybind.lua ===
+__RESONANCE["core/keybind.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/keybind.lua
 -- Система горячих клавиш
@@ -313,8 +319,10 @@ function Keybind.registerMenuToggle(keyStr, library)
 end
 
 return Keybind
+end)()
 
 -- === core/config.lua ===
+__RESONANCE["core/config.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/config.lua
 -- Сохранение/загрузка конфига через executor API
@@ -384,8 +392,10 @@ function Config.exists()
 end
 
 return Config
+end)()
 
 -- === core/rgb.lua ===
+__RESONANCE["core/rgb.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/rgb.lua
 -- Глобальный RGB-режим (радуга для UI/объектов)
@@ -459,8 +469,10 @@ function RGB.bind(Settings)
 end
 
 return RGB
+end)()
 
 -- === core/manifest.lua ===
+__RESONANCE["core/manifest.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/manifest.lua
 -- Список всех модулей-функций (275 файлов)
@@ -560,8 +572,10 @@ return {
         "func_274_kick_multiple","func_275_kick_blacklist"
     }
 }
+end)()
 
 -- === core/remote_resolver.lua ===
+__RESONANCE["core/remote_resolver.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/remote_resolver.lua
 -- Поиск ремоутов кика / греб / действий под конкретную игру
@@ -649,8 +663,10 @@ function Resolver.dump()
 end
 
 return Resolver
+end)()
 
 -- === core/settings/init.lua ===
+__RESONANCE["core/settings/init.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — core/settings/init.lua
 -- Собирает все 40 опций в единую таблицу
@@ -720,8 +736,10 @@ _G.ResonanceSettings = Settings
 _G.ResonanceOptions  = Options
 
 return Settings
+end)()
 
 -- === ui/theme.lua ===
+__RESONANCE["ui/theme.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — ui/theme.lua
 -- Кастомные настройки темы Obsidian
@@ -779,8 +797,10 @@ function Theme.apply(Library)
 end
 
 return Theme
+end)()
 
 -- === ui/notifications.lua ===
+__RESONANCE["ui/notifications.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — ui/notifications.lua
 -- Обёртка над Library:Notify для единообразных уведомлений
@@ -841,8 +861,10 @@ if _G.ResonanceUtils then
 end
 
 return Notifications
+end)()
 
 -- === ui/build.lua ===
+__RESONANCE["ui/build.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — ui/build.lua
 -- Авто-генерация UI из Registry + Options через Obsidian
@@ -1095,8 +1117,10 @@ _G.ResonanceLibrary = Library
 _G.ResonanceTabs = Tabs
 
 return Library
+end)()
 
 -- === modules/combat/func_001_super_throw.lua ===
+__RESONANCE["modules/combat/func_001_super_throw.lua"] = (function()
 -- Func #001: Super Throw | toggle
 
 local Workspace = game:GetService("Workspace")
@@ -1132,8 +1156,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_002_massless_grab.lua ===
+__RESONANCE["modules/combat/func_002_massless_grab.lua"] = (function()
 -- Func #002: Massless Grab | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -1157,8 +1183,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_003_freeze_grab.lua ===
+__RESONANCE["modules/combat/func_003_freeze_grab.lua"] = (function()
 -- Func #003: Freeze Grab | toggle
 local Workspace = game:GetService("Workspace")
 local State = { running = false }
@@ -1190,8 +1218,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_004_silent_aim.lua ===
+__RESONANCE["modules/combat/func_004_silent_aim.lua"] = (function()
 -- Func #004: Silent Aim | toggle
 local RunService = game:GetService("RunService")
 local Workspace  = game:GetService("Workspace")
@@ -1220,8 +1250,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_005_aimbot.lua ===
+__RESONANCE["modules/combat/func_005_aimbot.lua"] = (function()
 -- Func #005: Aimbot | toggle
 local RunService = game:GetService("RunService")
 local Workspace  = game:GetService("Workspace")
@@ -1247,8 +1279,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_006_telekinesis.lua ===
+__RESONANCE["modules/combat/func_006_telekinesis.lua"] = (function()
 -- Func #006: Telekinesis | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -1271,8 +1305,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/combat/func_007_auto_throw.lua ===
+__RESONANCE["modules/combat/func_007_auto_throw.lua"] = (function()
 -- Func #007: Auto Throw | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -1295,8 +1331,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_008_kill_aura.lua ===
+__RESONANCE["modules/combat/func_008_kill_aura.lua"] = (function()
 -- Func #008: Kill Aura | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -1326,8 +1364,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/combat/func_009_hitbox_expander.lua ===
+__RESONANCE["modules/combat/func_009_hitbox_expander.lua"] = (function()
 -- Func #009: Hitbox Expander | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -1367,8 +1407,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_010_wall_bang.lua ===
+__RESONANCE["modules/combat/func_010_wall_bang.lua"] = (function()
 -- Func #010: Wall Bang | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -1398,8 +1440,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/combat/func_011_rapid_fire.lua ===
+__RESONANCE["modules/combat/func_011_rapid_fire.lua"] = (function()
 -- Func #011: Rapid Fire | toggle
 local State = { running = false }
 
@@ -1423,8 +1467,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/combat/func_012_no_recoil.lua ===
+__RESONANCE["modules/combat/func_012_no_recoil.lua"] = (function()
 -- Func #012: No Recoil | toggle
 local RunService = game:GetService("RunService")
 local Workspace  = game:GetService("Workspace")
@@ -1447,8 +1493,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_013_fling_all.lua ===
+__RESONANCE["modules/combat/func_013_fling_all.lua"] = (function()
 -- Func #013: Fling All | button
 
 local Players = game:GetService("Players")
@@ -1468,8 +1516,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_014_fling_random.lua ===
+__RESONANCE["modules/combat/func_014_fling_random.lua"] = (function()
 -- Func #014: Fling Random | button
 
 local Players = game:GetService("Players")
@@ -1487,8 +1537,10 @@ return {
         if hrp then Utils.fling(hrp, Settings.FlingPower or 300) end
     end
 }
+end)()
 
 -- === modules/combat/func_015_fling_closest.lua ===
+__RESONANCE["modules/combat/func_015_fling_closest.lua"] = (function()
 -- Func #015: Fling Closest | button
 
 local Players = game:GetService("Players")
@@ -1505,8 +1557,10 @@ return {
         if hrp then Utils.fling(hrp, Settings.FlingPower or 300) end
     end
 }
+end)()
 
 -- === modules/combat/func_016_kill_all.lua ===
+__RESONANCE["modules/combat/func_016_kill_all.lua"] = (function()
 -- Func #016: Kill All | button
 
 local Players = game:GetService("Players")
@@ -1525,8 +1579,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_017_kill_closest.lua ===
+__RESONANCE["modules/combat/func_017_kill_closest.lua"] = (function()
 -- Func #017: Kill Closest | button
 
 local Players = game:GetService("Players")
@@ -1543,8 +1599,10 @@ return {
         if hum then hum.Health = 0 end
     end
 }
+end)()
 
 -- === modules/combat/func_018_kill_random.lua ===
+__RESONANCE["modules/combat/func_018_kill_random.lua"] = (function()
 -- Func #018: Kill Random | button
 
 local Players = game:GetService("Players")
@@ -1561,8 +1619,10 @@ return {
         if hum then hum.Health = 0 end
     end
 }
+end)()
 
 -- === modules/combat/func_019_burn_all.lua ===
+__RESONANCE["modules/combat/func_019_burn_all.lua"] = (function()
 -- Func #019: Burn All | button
 
 local Players = game:GetService("Players")
@@ -1581,8 +1641,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_020_burn_closest.lua ===
+__RESONANCE["modules/combat/func_020_burn_closest.lua"] = (function()
 -- Func #020: Burn Closest | button
 
 local Players = game:GetService("Players")
@@ -1599,8 +1661,10 @@ return {
         if hrp then Debris:AddItem(Instance.new("Fire", hrp), 5) end
     end
 }
+end)()
 
 -- === modules/combat/func_021_freeze_all.lua ===
+__RESONANCE["modules/combat/func_021_freeze_all.lua"] = (function()
 -- Func #021: Freeze All | button
 
 local Players = game:GetService("Players")
@@ -1619,8 +1683,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_022_unfreeze_all.lua ===
+__RESONANCE["modules/combat/func_022_unfreeze_all.lua"] = (function()
 -- Func #022: Unfreeze All | button
 
 local Players = game:GetService("Players")
@@ -1639,8 +1705,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_023_ragdoll_all.lua ===
+__RESONANCE["modules/combat/func_023_ragdoll_all.lua"] = (function()
 -- Func #023: Ragdoll All | button
 
 local Players = game:GetService("Players")
@@ -1659,8 +1727,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_024_explode_all.lua ===
+__RESONANCE["modules/combat/func_024_explode_all.lua"] = (function()
 -- Func #024: Explode All | button
 
 local Players = game:GetService("Players")
@@ -1685,8 +1755,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_025_void_all.lua ===
+__RESONANCE["modules/combat/func_025_void_all.lua"] = (function()
 -- Func #025: Void All | button
 
 local Players = game:GetService("Players")
@@ -1705,8 +1777,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_026_sky_all.lua ===
+__RESONANCE["modules/combat/func_026_sky_all.lua"] = (function()
 -- Func #026: Sky All | button
 
 local Players = game:GetService("Players")
@@ -1725,8 +1799,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_027_shake_all.lua ===
+__RESONANCE["modules/combat/func_027_shake_all.lua"] = (function()
 -- Func #027: Shake All | button
 
 local Players = game:GetService("Players")
@@ -1753,8 +1829,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_028_spin_all.lua ===
+__RESONANCE["modules/combat/func_028_spin_all.lua"] = (function()
 -- Func #028: Spin All | button
 
 local Players = game:GetService("Players")
@@ -1779,8 +1857,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_029_slow_all.lua ===
+__RESONANCE["modules/combat/func_029_slow_all.lua"] = (function()
 -- Func #029: Slow All | button
 
 local Players = game:GetService("Players")
@@ -1799,8 +1879,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_030_speed_all.lua ===
+__RESONANCE["modules/combat/func_030_speed_all.lua"] = (function()
 -- Func #030: Speed All | button
 
 local Players = game:GetService("Players")
@@ -1819,8 +1901,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_031_jump_all.lua ===
+__RESONANCE["modules/combat/func_031_jump_all.lua"] = (function()
 -- Func #031: Jump All | button
 
 local Players = game:GetService("Players")
@@ -1839,8 +1923,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_032_reset_all.lua ===
+__RESONANCE["modules/combat/func_032_reset_all.lua"] = (function()
 -- Func #032: Reset All | button
 
 local Players = game:GetService("Players")
@@ -1858,8 +1944,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_033_anchor_all.lua ===
+__RESONANCE["modules/combat/func_033_anchor_all.lua"] = (function()
 -- Func #033: Anchor All | button
 
 local Players = game:GetService("Players")
@@ -1878,8 +1966,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_034_unanchor_all.lua ===
+__RESONANCE["modules/combat/func_034_unanchor_all.lua"] = (function()
 -- Func #034: Unanchor All | button
 
 local Players = game:GetService("Players")
@@ -1898,8 +1988,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_035_shirt_off_all.lua ===
+__RESONANCE["modules/combat/func_035_shirt_off_all.lua"] = (function()
 -- Func #035: Shirt Off All | button
 
 local Players = game:GetService("Players")
@@ -1918,8 +2010,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_036_pants_off_all.lua ===
+__RESONANCE["modules/combat/func_036_pants_off_all.lua"] = (function()
 -- Func #036: Pants Off All | button
 
 local Players = game:GetService("Players")
@@ -1938,8 +2032,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_037_hats_off_all.lua ===
+__RESONANCE["modules/combat/func_037_hats_off_all.lua"] = (function()
 -- Func #037: Hats Off All | button
 
 local Players = game:GetService("Players")
@@ -1959,8 +2055,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_038_drop_tools_all.lua ===
+__RESONANCE["modules/combat/func_038_drop_tools_all.lua"] = (function()
 -- Func #038: Drop Tools All | button
 
 local Players = game:GetService("Players")
@@ -1979,8 +2077,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_039_forcefield_off_all.lua ===
+__RESONANCE["modules/combat/func_039_forcefield_off_all.lua"] = (function()
 -- Func #039: Forcefield Off All | button
 
 local Players = game:GetService("Players")
@@ -1999,8 +2099,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/combat/func_040_character_reset.lua ===
+__RESONANCE["modules/combat/func_040_character_reset.lua"] = (function()
 -- Func #040: Character Reset (Self) | button
 
 local Players = game:GetService("Players")
@@ -2015,8 +2117,10 @@ return {
         if char then pcall(function() char:BreakJoints() end) end
     end
 }
+end)()
 
 -- === modules/auras/func_041_fling_aura.lua ===
+__RESONANCE["modules/auras/func_041_fling_aura.lua"] = (function()
 -- Func #041: Fling Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2056,8 +2160,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_042_kill_aura.lua ===
+__RESONANCE["modules/auras/func_042_kill_aura.lua"] = (function()
 -- Func #042: Kill Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2092,8 +2198,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_043_freeze_aura.lua ===
+__RESONANCE["modules/auras/func_043_freeze_aura.lua"] = (function()
 -- Func #043: Freeze Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2140,8 +2248,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/auras/func_044_fire_aura.lua ===
+__RESONANCE["modules/auras/func_044_fire_aura.lua"] = (function()
 -- Func #044: Fire Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2183,8 +2293,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_045_void_aura.lua ===
+__RESONANCE["modules/auras/func_045_void_aura.lua"] = (function()
 -- Func #045: Void Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2218,8 +2330,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_046_attraction_aura.lua ===
+__RESONANCE["modules/auras/func_046_attraction_aura.lua"] = (function()
 -- Func #046: Attraction Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2256,8 +2370,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_047_auto_counter.lua ===
+__RESONANCE["modules/auras/func_047_auto_counter.lua"] = (function()
 -- Func #047: Auto-Counter
 -- Категория: Auras | Тип: toggle
 
@@ -2298,8 +2414,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_048_plot_kicker.lua ===
+__RESONANCE["modules/auras/func_048_plot_kicker.lua"] = (function()
 -- Func #048: Plot Kicker
 -- Категория: Auras | Тип: toggle
 
@@ -2333,8 +2451,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_049_gravity_aura.lua ===
+__RESONANCE["modules/auras/func_049_gravity_aura.lua"] = (function()
 -- Func #049: Gravity Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2373,8 +2493,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_050_spin_aura.lua ===
+__RESONANCE["modules/auras/func_050_spin_aura.lua"] = (function()
 -- Func #050: Spin Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2413,8 +2535,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_051_damage_aura.lua ===
+__RESONANCE["modules/auras/func_051_damage_aura.lua"] = (function()
 -- Func #051: Damage Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2450,8 +2574,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_052_slow_aura.lua ===
+__RESONANCE["modules/auras/func_052_slow_aura.lua"] = (function()
 -- Func #052: Slow Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2486,8 +2612,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_053_ragdoll_aura.lua ===
+__RESONANCE["modules/auras/func_053_ragdoll_aura.lua"] = (function()
 -- Func #053: Ragdoll Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2522,8 +2650,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_054_teleport_aura.lua ===
+__RESONANCE["modules/auras/func_054_teleport_aura.lua"] = (function()
 -- Func #054: Teleport Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2557,8 +2687,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_055_blind_aura.lua ===
+__RESONANCE["modules/auras/func_055_blind_aura.lua"] = (function()
 -- Func #055: Blind Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2602,8 +2734,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_056_kick_aura.lua ===
+__RESONANCE["modules/auras/func_056_kick_aura.lua"] = (function()
 -- Func #056: Kick Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2643,8 +2777,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_057_confuse_aura.lua ===
+__RESONANCE["modules/auras/func_057_confuse_aura.lua"] = (function()
 -- Func #057: Confuse Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2678,8 +2814,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_058_mute_aura.lua ===
+__RESONANCE["modules/auras/func_058_mute_aura.lua"] = (function()
 -- Func #058: Mute Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2715,8 +2853,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_059_shrink_aura.lua ===
+__RESONANCE["modules/auras/func_059_shrink_aura.lua"] = (function()
 -- Func #059: Shrink Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2753,8 +2893,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/auras/func_060_grow_aura.lua ===
+__RESONANCE["modules/auras/func_060_grow_aura.lua"] = (function()
 -- Func #060: Grow Aura
 -- Категория: Auras | Тип: toggle
 
@@ -2791,8 +2933,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/protection/func_061_anti_grab.lua ===
+__RESONANCE["modules/protection/func_061_anti_grab.lua"] = (function()
 -- Func #061: Anti-Grab | toggle
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -2918,8 +3062,10 @@ return {
         return { grabAttempts = State.grabAttempts, weldsRemoved = State.weldsRemoved, bodyMoversRemoved = State.bodyMoversRemoved }
     end
 }
+end)()
 
 -- === modules/protection/func_062_anti_fling.lua ===
+__RESONANCE["modules/protection/func_062_anti_fling.lua"] = (function()
 -- Func #062: Anti-Fling | toggle
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
@@ -2981,8 +3127,10 @@ return {
     end,
     getStats = function() return { blocked = State.blocked } end
 }
+end)()
 
 -- === modules/protection/func_063_anti_freeze.lua ===
+__RESONANCE["modules/protection/func_063_anti_freeze.lua"] = (function()
 -- Func #063: Anti-Freeze | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3027,8 +3175,10 @@ return {
         return { unfreezes = State.unfreezes, anchorRestores = State.anchorRestores }
     end
 }
+end)()
 
 -- === modules/protection/func_064_anti_ragdoll.lua ===
+__RESONANCE["modules/protection/func_064_anti_ragdoll.lua"] = (function()
 -- Func #064: Anti-Ragdoll | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3110,8 +3260,10 @@ return {
     end,
     getStats = function() return { blocks = State.blocks } end
 }
+end)()
 
 -- === modules/protection/func_065_anti_void.lua ===
+__RESONANCE["modules/protection/func_065_anti_void.lua"] = (function()
 -- Func #065: Anti-Void | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -3174,8 +3326,10 @@ return {
     end,
     getStats = function() return { recoveries = State.recoveries } end
 }
+end)()
 
 -- === modules/protection/func_066_anti_vote_kick.lua ===
+__RESONANCE["modules/protection/func_066_anti_vote_kick.lua"] = (function()
 -- Func #066: Anti-Vote Kick | toggle
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -3275,8 +3429,10 @@ return {
     end,
     getStats = function() return { blocked = State.blocked, destroyed = State.destroyed } end
 }
+end)()
 
 -- === modules/protection/func_067_anti_kick.lua ===
+__RESONANCE["modules/protection/func_067_anti_kick.lua"] = (function()
 -- Func #067: Anti-Kick | toggle
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -3386,8 +3542,10 @@ return {
     end,
     getStats = function() return { blocked = State.blocked } end
 }
+end)()
 
 -- === modules/protection/func_068_anti_teleport.lua ===
+__RESONANCE["modules/protection/func_068_anti_teleport.lua"] = (function()
 -- Func #068: Anti-Teleport | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -3476,8 +3634,10 @@ return {
     getStats = function() return { reversals = State.reversals } end,
     allowTeleport = allowTeleport
 }
+end)()
 
 -- === modules/protection/func_069_anti_sit.lua ===
+__RESONANCE["modules/protection/func_069_anti_sit.lua"] = (function()
 -- Func #069: Anti-Sit | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3555,8 +3715,10 @@ return {
     end,
     getStats = function() return { sitBlocked = State.sitBlocked, weldsRemoved = State.weldsRemoved } end
 }
+end)()
 
 -- === modules/protection/func_070_anti_burn.lua ===
+__RESONANCE["modules/protection/func_070_anti_burn.lua"] = (function()
 -- Func #070: Anti-Burn | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3629,8 +3791,10 @@ return {
     end,
     getStats = function() return { cleared = State.cleared } end
 }
+end)()
 
 -- === modules/protection/func_071_anti_explosion.lua ===
+__RESONANCE["modules/protection/func_071_anti_explosion.lua"] = (function()
 -- Func #071: Anti-Explosion | toggle
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -3699,8 +3863,10 @@ return {
     end,
     getStats = function() return { neutralized = State.neutralized } end
 }
+end)()
 
 -- === modules/protection/func_072_anti_damage.lua ===
+__RESONANCE["modules/protection/func_072_anti_damage.lua"] = (function()
 -- Func #072: Anti-Damage | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3774,8 +3940,10 @@ return {
     end,
     getStats = function() return { heals = State.heals, damagesBlocked = State.damagesBlocked } end
 }
+end)()
 
 -- === modules/protection/func_073_anti_slow.lua ===
+__RESONANCE["modules/protection/func_073_anti_slow.lua"] = (function()
 -- Func #073: Anti-Slow | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3815,8 +3983,10 @@ return {
     onDisable = function() State.running = false end,
     getStats = function() return { wsRestores = State.wsRestores, jpRestores = State.jpRestores } end
 }
+end)()
 
 -- === modules/protection/func_074_anti_fire_touch.lua ===
+__RESONANCE["modules/protection/func_074_anti_fire_touch.lua"] = (function()
 -- Func #074: Anti-Fire Touch | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -3880,8 +4050,10 @@ return {
     end,
     getStats = function() return { disabled = State.disabled } end
 }
+end)()
 
 -- === modules/protection/func_075_anti_gravity.lua ===
+__RESONANCE["modules/protection/func_075_anti_gravity.lua"] = (function()
 -- Func #075: Anti-Gravity | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -3920,8 +4092,10 @@ return {
     end,
     getStats = function() return { restores = State.restores } end
 }
+end)()
 
 -- === modules/protection/func_076_anti_shrink.lua ===
+__RESONANCE["modules/protection/func_076_anti_shrink.lua"] = (function()
 -- Func #076: Anti-Shrink | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3957,8 +4131,10 @@ return {
     onDisable = function() State.running = false end,
     getStats = function() return { restores = State.restores } end
 }
+end)()
 
 -- === modules/protection/func_077_noclip.lua ===
+__RESONANCE["modules/protection/func_077_noclip.lua"] = (function()
 -- Func #077: Noclip | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -4014,8 +4190,10 @@ return {
         restore()
     end
 }
+end)()
 
 -- === modules/protection/func_078_infinite_yield.lua ===
+__RESONANCE["modules/protection/func_078_infinite_yield.lua"] = (function()
 -- Func #078: Infinite Yield | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4053,8 +4231,10 @@ return {
     onDisable = function() State.running = false end,
     getStats = function() return { respawns = State.respawns } end
 }
+end)()
 
 -- === modules/protection/func_079_god_mode.lua ===
+__RESONANCE["modules/protection/func_079_god_mode.lua"] = (function()
 -- Func #079: God Mode | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4118,8 +4298,10 @@ return {
     end,
     getStats = function() return { heals = State.heals } end
 }
+end)()
 
 -- === modules/protection/func_080_rejoin_on_damage.lua ===
+__RESONANCE["modules/protection/func_080_rejoin_on_damage.lua"] = (function()
 -- Func #080: Rejoin on Damage | toggle
 local Players = game:GetService("Players")
 local TeleportService = game:GetService("TeleportService")
@@ -4174,8 +4356,10 @@ return {
     onDisable = function() State.running = false end,
     getStats = function() return { triggered = State.triggered } end
 }
+end)()
 
 -- === modules/targeting/func_081_loop_kill.lua ===
+__RESONANCE["modules/targeting/func_081_loop_kill.lua"] = (function()
 -- Func #081: Loop Kill | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4202,8 +4386,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/targeting/func_082_loop_burn.lua ===
+__RESONANCE["modules/targeting/func_082_loop_burn.lua"] = (function()
 -- Func #082: Loop Burn | toggle
 local Players = game:GetService("Players")
 local Debris = game:GetService("Debris")
@@ -4236,8 +4422,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/targeting/func_083_loop_fling.lua ===
+__RESONANCE["modules/targeting/func_083_loop_fling.lua"] = (function()
 -- Func #083: Loop Fling | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4264,8 +4452,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/targeting/func_084_loop_freeze.lua ===
+__RESONANCE["modules/targeting/func_084_loop_freeze.lua"] = (function()
 -- Func #084: Loop Freeze | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4305,8 +4495,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/targeting/func_085_loop_void.lua ===
+__RESONANCE["modules/targeting/func_085_loop_void.lua"] = (function()
 -- Func #085: Loop Void | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4333,8 +4525,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/targeting/func_086_follow_target.lua ===
+__RESONANCE["modules/targeting/func_086_follow_target.lua"] = (function()
 -- Func #086: Follow Target | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -4366,8 +4560,10 @@ return {
         if State.conn then State.conn:Disconnect(); State.conn = nil end
     end
 }
+end)()
 
 -- === modules/targeting/func_087_view_target.lua ===
+__RESONANCE["modules/targeting/func_087_view_target.lua"] = (function()
 -- Func #087: View Target | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -4399,8 +4595,10 @@ return {
         if State.conn then State.conn:Disconnect(); State.conn = nil end
     end
 }
+end)()
 
 -- === modules/targeting/func_088_tp_to_target.lua ===
+__RESONANCE["modules/targeting/func_088_tp_to_target.lua"] = (function()
 -- Func #088: TP to Target | button
 local Players = game:GetService("Players")
 
@@ -4416,8 +4614,10 @@ return {
         if hrp then Utils.teleportTo(hrp.CFrame + Vector3.new(0, 3, 0)) end
     end
 }
+end)()
 
 -- === modules/targeting/func_089_tp_target_to_me.lua ===
+__RESONANCE["modules/targeting/func_089_tp_target_to_me.lua"] = (function()
 -- Func #089: TP Target to Me | button
 local Players = game:GetService("Players")
 
@@ -4436,8 +4636,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/targeting/func_090_kill_target.lua ===
+__RESONANCE["modules/targeting/func_090_kill_target.lua"] = (function()
 -- Func #090: Kill Target | button
 local Players = game:GetService("Players")
 
@@ -4453,8 +4655,10 @@ return {
         if hum then hum.Health = 0 end
     end
 }
+end)()
 
 -- === modules/targeting/func_091_fling_target.lua ===
+__RESONANCE["modules/targeting/func_091_fling_target.lua"] = (function()
 -- Func #091: Fling Target | button
 local Players = game:GetService("Players")
 
@@ -4470,8 +4674,10 @@ return {
         if hrp then Utils.fling(hrp, Settings.FlingPower or 400) end
     end
 }
+end)()
 
 -- === modules/targeting/func_092_freeze_target.lua ===
+__RESONANCE["modules/targeting/func_092_freeze_target.lua"] = (function()
 -- Func #092: Freeze Target | button
 local Players = game:GetService("Players")
 
@@ -4489,8 +4695,10 @@ return {
         if hum then hum.WalkSpeed = 0; hum.JumpPower = 0 end
     end
 }
+end)()
 
 -- === modules/targeting/func_093_void_target.lua ===
+__RESONANCE["modules/targeting/func_093_void_target.lua"] = (function()
 -- Func #093: Void Target | button
 local Players = game:GetService("Players")
 
@@ -4506,8 +4714,10 @@ return {
         if hrp then hrp.CFrame = CFrame.new(0, -500, 0) end
     end
 }
+end)()
 
 -- === modules/targeting/func_094_sky_target.lua ===
+__RESONANCE["modules/targeting/func_094_sky_target.lua"] = (function()
 -- Func #094: Sky Target | button
 local Players = game:GetService("Players")
 
@@ -4523,8 +4733,10 @@ return {
         if hrp then hrp.CFrame = CFrame.new(0, 500, 0) end
     end
 }
+end)()
 
 -- === modules/targeting/func_095_spin_target.lua ===
+__RESONANCE["modules/targeting/func_095_spin_target.lua"] = (function()
 -- Func #095: Spin Target | button
 local Players = game:GetService("Players")
 local Debris = game:GetService("Debris")
@@ -4547,8 +4759,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/targeting/func_096_orbit_target.lua ===
+__RESONANCE["modules/targeting/func_096_orbit_target.lua"] = (function()
 -- Func #096: Orbit Target | button
 local Players = game:GetService("Players")
 
@@ -4574,8 +4788,10 @@ return {
         end)
     end
 }
+end)()
 
 -- === modules/targeting/func_097_ragdoll_target.lua ===
+__RESONANCE["modules/targeting/func_097_ragdoll_target.lua"] = (function()
 -- Func #097: Ragdoll Target | button
 local Players = game:GetService("Players")
 
@@ -4593,8 +4809,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/targeting/func_098_blind_target.lua ===
+__RESONANCE["modules/targeting/func_098_blind_target.lua"] = (function()
 -- Func #098: Blind Target | button
 local Players = game:GetService("Players")
 local Debris = game:GetService("Debris")
@@ -4619,8 +4837,10 @@ return {
         end)
     end
 }
+end)()
 
 -- === modules/targeting/func_099_steal_target_tools.lua ===
+__RESONANCE["modules/targeting/func_099_steal_target_tools.lua"] = (function()
 -- Func #099: Steal Target Tools | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4642,8 +4862,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/targeting/func_100_copy_target_skin.lua ===
+__RESONANCE["modules/targeting/func_100_copy_target_skin.lua"] = (function()
 -- Func #100: Copy Target Skin | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -4669,8 +4891,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/movement/func_101_infinite_jump.lua ===
+__RESONANCE["modules/movement/func_101_infinite_jump.lua"] = (function()
 -- Func #101: Infinite Jump | toggle
 local UserInputService = game:GetService("UserInputService")
 
@@ -4691,8 +4915,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/movement/func_102_noclip.lua ===
+__RESONANCE["modules/movement/func_102_noclip.lua"] = (function()
 -- Func #102: Noclip | toggle
 local RunService = game:GetService("RunService")
 
@@ -4726,8 +4952,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/movement/func_103_fly.lua ===
+__RESONANCE["modules/movement/func_103_fly.lua"] = (function()
 -- Func #103: Fly | toggle
 local RunService       = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -4779,8 +5007,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/movement/func_104_speed_boost.lua ===
+__RESONANCE["modules/movement/func_104_speed_boost.lua"] = (function()
 -- Func #104: Speed Boost | toggle
 return {
     id = "SpeedBoost", type = "toggle", name = "Speed Boost",
@@ -4794,8 +5024,10 @@ return {
         if hum then hum.WalkSpeed = 16 end
     end
 }
+end)()
 
 -- === modules/movement/func_105_high_jump.lua ===
+__RESONANCE["modules/movement/func_105_high_jump.lua"] = (function()
 -- Func #105: High Jump | toggle
 return {
     id = "HighJump", type = "toggle", name = "High Jump",
@@ -4809,8 +5041,10 @@ return {
         if hum then hum.JumpPower = 50 end
     end
 }
+end)()
 
 -- === modules/movement/func_106_low_gravity.lua ===
+__RESONANCE["modules/movement/func_106_low_gravity.lua"] = (function()
 -- Func #106: Low Gravity | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -4825,8 +5059,10 @@ return {
         Workspace.Gravity = _G.ResonanceOrigGravity or 196.2
     end
 }
+end)()
 
 -- === modules/movement/func_107_zero_gravity.lua ===
+__RESONANCE["modules/movement/func_107_zero_gravity.lua"] = (function()
 -- Func #107: Zero Gravity | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -4841,8 +5077,10 @@ return {
         Workspace.Gravity = _G.ResonanceOrigGravity2 or 196.2
     end
 }
+end)()
 
 -- === modules/movement/func_108_auto_jump.lua ===
+__RESONANCE["modules/movement/func_108_auto_jump.lua"] = (function()
 -- Func #108: Auto Jump | toggle
 local State = { running = false }
 
@@ -4863,8 +5101,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/movement/func_109_bunny_hop.lua ===
+__RESONANCE["modules/movement/func_109_bunny_hop.lua"] = (function()
 -- Func #109: Bunny Hop | toggle
 local State = { running = false }
 
@@ -4885,8 +5125,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/movement/func_110_slide.lua ===
+__RESONANCE["modules/movement/func_110_slide.lua"] = (function()
 -- Func #110: Slide | toggle
 local UserInputService = game:GetService("UserInputService")
 local State = { running = false }
@@ -4915,8 +5157,10 @@ return {
         if hum then hum.WalkSpeed = 16 end
     end
 }
+end)()
 
 -- === modules/movement/func_111_wall_run.lua ===
+__RESONANCE["modules/movement/func_111_wall_run.lua"] = (function()
 -- Func #111: Wall Run | toggle
 local UserInputService = game:GetService("UserInputService")
 local State = { running = false }
@@ -4945,8 +5189,10 @@ return {
         if hum then hum.WalkSpeed = 16 end
     end
 }
+end)()
 
 -- === modules/movement/func_112_crouch.lua ===
+__RESONANCE["modules/movement/func_112_crouch.lua"] = (function()
 -- Func #112: Crouch | toggle
 return {
     id = "Crouch", type = "toggle", name = "Crouch",
@@ -4964,8 +5210,10 @@ return {
         hum.WalkSpeed = Settings.WalkSpeed or 16
     end
 }
+end)()
 
 -- === modules/movement/func_113_sprint.lua ===
+__RESONANCE["modules/movement/func_113_sprint.lua"] = (function()
 -- Func #113: Sprint | toggle
 local UserInputService = game:GetService("UserInputService")
 local State = { running = false }
@@ -4994,8 +5242,10 @@ return {
         if hum then hum.WalkSpeed = 16 end
     end
 }
+end)()
 
 -- === modules/movement/func_114_tp_spawn.lua ===
+__RESONANCE["modules/movement/func_114_tp_spawn.lua"] = (function()
 -- Func #114: Teleport to Spawn | button
 local Workspace = game:GetService("Workspace")
 
@@ -5012,8 +5262,10 @@ return {
         if sp then Utils.teleportTo(sp.CFrame + Vector3.new(0, 5, 0)) end
     end
 }
+end)()
 
 -- === modules/movement/func_115_tp_random_player.lua ===
+__RESONANCE["modules/movement/func_115_tp_random_player.lua"] = (function()
 -- Func #115: Teleport to Random Player | button
 return {
     id = "TpRandomPlayer", type = "button", name = "Teleport to Random Player",
@@ -5026,8 +5278,10 @@ return {
         if hrp then Utils.teleportTo(hrp.CFrame + Vector3.new(0, 3, 0)) end
     end
 }
+end)()
 
 -- === modules/movement/func_116_tp_forward.lua ===
+__RESONANCE["modules/movement/func_116_tp_forward.lua"] = (function()
 -- Func #116: Teleport Forward | button
 local Workspace = game:GetService("Workspace")
 local Camera    = Workspace.CurrentCamera
@@ -5040,8 +5294,10 @@ return {
         if hrp then Utils.teleportTo(hrp.CFrame + Camera.CFrame.LookVector * 50) end
     end
 }
+end)()
 
 -- === modules/movement/func_117_tp_up.lua ===
+__RESONANCE["modules/movement/func_117_tp_up.lua"] = (function()
 -- Func #117: Teleport Up | button
 return {
     id = "TpUp", type = "button", name = "Teleport Up",
@@ -5051,8 +5307,10 @@ return {
         if hrp then Utils.teleportTo(hrp.CFrame + Vector3.new(0, 50, 0)) end
     end
 }
+end)()
 
 -- === modules/movement/func_118_tp_down.lua ===
+__RESONANCE["modules/movement/func_118_tp_down.lua"] = (function()
 -- Func #118: Teleport Down | button
 return {
     id = "TpDown", type = "button", name = "Teleport Down",
@@ -5062,8 +5320,10 @@ return {
         if hrp then Utils.teleportTo(hrp.CFrame + Vector3.new(0, -50, 0)) end
     end
 }
+end)()
 
 -- === modules/movement/func_119_tp_cursor.lua ===
+__RESONANCE["modules/movement/func_119_tp_cursor.lua"] = (function()
 -- Func #119: Teleport to Cursor | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -5078,8 +5338,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/movement/func_120_reset_speed.lua ===
+__RESONANCE["modules/movement/func_120_reset_speed.lua"] = (function()
 -- Func #120: Reset Speed | button
 return {
     id = "ResetSpeed", type = "button", name = "Reset Speed",
@@ -5095,8 +5357,10 @@ return {
         Utils.notify("Resonance", "Скорость сброшена", Settings)
     end
 }
+end)()
 
 -- === modules/visuals/func_121_esp_boxes.lua ===
+__RESONANCE["modules/visuals/func_121_esp_boxes.lua"] = (function()
 -- Func #121: ESP Boxes | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5154,8 +5418,10 @@ return {
         State.boxes = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_122_esp_tracers.lua ===
+__RESONANCE["modules/visuals/func_122_esp_tracers.lua"] = (function()
 -- Func #122: ESP Tracers | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5221,8 +5487,10 @@ return {
         State.tracers = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_123_player_info.lua ===
+__RESONANCE["modules/visuals/func_123_player_info.lua"] = (function()
 -- Func #123: Player Info | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5298,8 +5566,10 @@ return {
         State.tags = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_124_name_tags.lua ===
+__RESONANCE["modules/visuals/func_124_name_tags.lua"] = (function()
 -- Func #124: Name Tags | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -5349,8 +5619,10 @@ return {
         State.tags = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_125_health_bars.lua ===
+__RESONANCE["modules/visuals/func_125_health_bars.lua"] = (function()
 -- Func #125: Health Bars | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5429,8 +5701,10 @@ return {
         State.bars = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_126_distance_display.lua ===
+__RESONANCE["modules/visuals/func_126_distance_display.lua"] = (function()
 -- Func #126: Distance Display | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5503,8 +5777,10 @@ return {
         State.labels = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_127_skeleton_esp.lua ===
+__RESONANCE["modules/visuals/func_127_skeleton_esp.lua"] = (function()
 -- Func #127: Skeleton ESP | toggle
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5579,8 +5855,10 @@ return {
         State.lines = {}
     end
 }
+end)()
 
 -- === modules/visuals/func_128_chams.lua ===
+__RESONANCE["modules/visuals/func_128_chams.lua"] = (function()
 -- Func #128: Chams | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -5614,8 +5892,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/visuals/func_129_xray.lua ===
+__RESONANCE["modules/visuals/func_129_xray.lua"] = (function()
 -- Func #129: X-Ray | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -5648,8 +5928,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/visuals/func_130_fullbright.lua ===
+__RESONANCE["modules/visuals/func_130_fullbright.lua"] = (function()
 -- Func #130: Fullbright | toggle
 local Lighting = game:GetService("Lighting")
 local State = { orig = {} }
@@ -5671,8 +5953,10 @@ return {
         if State.orig.Brightness then Lighting.Brightness = State.orig.Brightness end
     end
 }
+end)()
 
 -- === modules/visuals/func_131_no_fog.lua ===
+__RESONANCE["modules/visuals/func_131_no_fog.lua"] = (function()
 -- Func #131: No Fog | toggle
 local Lighting = game:GetService("Lighting")
 local State = { orig = nil }
@@ -5688,8 +5972,10 @@ return {
         Lighting.FogEnd = State.orig or 1000
     end
 }
+end)()
 
 -- === modules/visuals/func_132_remove_textures.lua ===
+__RESONANCE["modules/visuals/func_132_remove_textures.lua"] = (function()
 -- Func #132: Remove Textures | toggle
 local Workspace = game:GetService("Workspace")
 
@@ -5711,8 +5997,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/visuals/func_133_blue_sky.lua ===
+__RESONANCE["modules/visuals/func_133_blue_sky.lua"] = (function()
 -- Func #133: Blue Sky | toggle
 local Lighting = game:GetService("Lighting")
 
@@ -5738,8 +6026,10 @@ return {
         if sky then sky:Destroy() end
     end
 }
+end)()
 
 -- === modules/visuals/func_134_red_ambient.lua ===
+__RESONANCE["modules/visuals/func_134_red_ambient.lua"] = (function()
 -- Func #134: Red Ambient | toggle
 local Lighting = game:GetService("Lighting")
 local State = { orig = nil }
@@ -5755,8 +6045,10 @@ return {
         Lighting.Ambient = State.orig or Color3.fromRGB(0, 0, 0)
     end
 }
+end)()
 
 -- === modules/visuals/func_135_green_ambient.lua ===
+__RESONANCE["modules/visuals/func_135_green_ambient.lua"] = (function()
 -- Func #135: Green Ambient | toggle
 local Lighting = game:GetService("Lighting")
 local State = { orig = nil }
@@ -5772,8 +6064,10 @@ return {
         Lighting.Ambient = State.orig or Color3.fromRGB(0, 0, 0)
     end
 }
+end)()
 
 -- === modules/visuals/func_136_rainbow_light.lua ===
+__RESONANCE["modules/visuals/func_136_rainbow_light.lua"] = (function()
 -- Func #136: Rainbow Light | toggle
 local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
@@ -5796,8 +6090,10 @@ return {
         Lighting.Ambient = Color3.fromRGB(0, 0, 0)
     end
 }
+end)()
 
 -- === modules/visuals/func_137_remove_baseplate.lua ===
+__RESONANCE["modules/visuals/func_137_remove_baseplate.lua"] = (function()
 -- Func #137: Remove Baseplate | button
 local Workspace = game:GetService("Workspace")
 
@@ -5812,8 +6108,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/visuals/func_138_remove_lights.lua ===
+__RESONANCE["modules/visuals/func_138_remove_lights.lua"] = (function()
 -- Func #138: Remove Lights | button
 local Workspace = game:GetService("Workspace")
 
@@ -5831,8 +6129,10 @@ return {
         Utils.notify("Resonance", "Удалено ламп: " .. count, Settings)
     end
 }
+end)()
 
 -- === modules/visuals/func_139_restore_lighting.lua ===
+__RESONANCE["modules/visuals/func_139_restore_lighting.lua"] = (function()
 -- Func #139: Restore Lighting | button
 local Lighting = game:GetService("Lighting")
 
@@ -5849,8 +6149,10 @@ return {
         Utils.notify("Resonance", "Освещение сброшено", Settings)
     end
 }
+end)()
 
 -- === modules/visuals/func_140_disable_shadows.lua ===
+__RESONANCE["modules/visuals/func_140_disable_shadows.lua"] = (function()
 -- Func #140: Disable Shadows | toggle
 local Lighting = game:GetService("Lighting")
 local State = { orig = nil }
@@ -5866,8 +6168,10 @@ return {
         Lighting.GlobalShadows = State.orig ~= false
     end
 }
+end)()
 
 -- === modules/server/func_141_rejoin.lua ===
+__RESONANCE["modules/server/func_141_rejoin.lua"] = (function()
 -- Func #141: Rejoin | button
 local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
@@ -5882,8 +6186,10 @@ return {
         end)
     end
 }
+end)()
 
 -- === modules/server/func_142_server_hop.lua ===
+__RESONANCE["modules/server/func_142_server_hop.lua"] = (function()
 -- Func #142: Server Hop | button
 local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
@@ -5906,8 +6212,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_143_join_smallest.lua ===
+__RESONANCE["modules/server/func_143_join_smallest.lua"] = (function()
 -- Func #143: Join Smallest Server | button
 local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
@@ -5937,8 +6245,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_144_join_largest.lua ===
+__RESONANCE["modules/server/func_144_join_largest.lua"] = (function()
 -- Func #144: Join Largest Server | button
 local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
@@ -5960,8 +6270,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_145_copy_jobid.lua ===
+__RESONANCE["modules/server/func_145_copy_jobid.lua"] = (function()
 -- Func #145: Copy JobID | button
 return {
     id = "CopyJobId", type = "button", name = "Copy JobID",
@@ -5973,8 +6285,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_146_copy_placeid.lua ===
+__RESONANCE["modules/server/func_146_copy_placeid.lua"] = (function()
 -- Func #146: Copy PlaceID | button
 return {
     id = "CopyPlaceId", type = "button", name = "Copy PlaceID",
@@ -5986,8 +6300,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_147_copy_server_link.lua ===
+__RESONANCE["modules/server/func_147_copy_server_link.lua"] = (function()
 -- Func #147: Copy Server Link | button
 return {
     id = "CopyServerLink", type = "button", name = "Copy Server Link",
@@ -6000,8 +6316,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_148_show_server_info.lua ===
+__RESONANCE["modules/server/func_148_show_server_info.lua"] = (function()
 -- Func #148: Show Server Info | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6015,8 +6333,10 @@ return {
         Utils.notify("Server Info", "Игроков: " .. count .. " | Ping: " .. ping .. " ms", Settings)
     end
 }
+end)()
 
 -- === modules/server/func_149_list_players.lua ===
+__RESONANCE["modules/server/func_149_list_players.lua"] = (function()
 -- Func #149: List Players | button
 local Players = game:GetService("Players")
 
@@ -6033,8 +6353,10 @@ return {
         Utils.notify("Resonance", "Список игроков выведен в консоль", Settings)
     end
 }
+end)()
 
 -- === modules/server/func_150_hop_until_empty.lua ===
+__RESONANCE["modules/server/func_150_hop_until_empty.lua"] = (function()
 -- Func #150: Hop Until Empty | toggle
 local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
@@ -6084,8 +6406,10 @@ return {
     onDisable = function() State.running = false end,
     getStats = function() return { hops = State.hops } end
 }
+end)()
 
 -- === modules/server/func_151_anti_afk.lua ===
+__RESONANCE["modules/server/func_151_anti_afk.lua"] = (function()
 -- Func #151: Anti-AFK | toggle
 local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
@@ -6107,8 +6431,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_152_auto_rejoin_kick.lua ===
+__RESONANCE["modules/server/func_152_auto_rejoin_kick.lua"] = (function()
 -- Func #152: Auto Rejoin on Kick | toggle
 local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
@@ -6124,8 +6450,10 @@ return {
         _G.ResonanceAutoRejoin = false
     end
 }
+end)()
 
 -- === modules/server/func_153_rejoin_delay.lua ===
+__RESONANCE["modules/server/func_153_rejoin_delay.lua"] = (function()
 -- Func #153: Rejoin Delay | button
 local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
@@ -6142,8 +6470,10 @@ return {
         end)
     end
 }
+end)()
 
 -- === modules/server/func_154_ping_display.lua ===
+__RESONANCE["modules/server/func_154_ping_display.lua"] = (function()
 -- Func #154: Ping Display | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6167,8 +6497,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/server/func_155_fps_display.lua ===
+__RESONANCE["modules/server/func_155_fps_display.lua"] = (function()
 -- Func #155: FPS Display | toggle
 local RunService = game:GetService("RunService")
 
@@ -6191,8 +6523,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/server/func_156_leave_game.lua ===
+__RESONANCE["modules/server/func_156_leave_game.lua"] = (function()
 -- Func #156: Leave Game | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6204,8 +6538,10 @@ return {
         LocalPlayer:Kick("Resonance: leave")
     end
 }
+end)()
 
 -- === modules/server/func_157_reset_character.lua ===
+__RESONANCE["modules/server/func_157_reset_character.lua"] = (function()
 -- Func #157: Reset Character | button
 return {
     id = "ResetCharacter", type = "button", name = "Reset Character",
@@ -6215,8 +6551,10 @@ return {
         if hum then hum.Health = 0 end
     end
 }
+end)()
 
 -- === modules/server/func_158_character_respawn.lua ===
+__RESONANCE["modules/server/func_158_character_respawn.lua"] = (function()
 -- Func #158: Character Respawn | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6230,8 +6568,10 @@ return {
         end)
     end
 }
+end)()
 
 -- === modules/server/func_159_unlock_fps.lua ===
+__RESONANCE["modules/server/func_159_unlock_fps.lua"] = (function()
 -- Func #159: Unlock FPS | toggle
 return {
     id = "UnlockFps", type = "toggle", name = "Unlock FPS",
@@ -6249,8 +6589,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/server/func_160_show_fps.lua ===
+__RESONANCE["modules/server/func_160_show_fps.lua"] = (function()
 -- Func #160: Show FPS | button
 local RunService = game:GetService("RunService")
 
@@ -6262,8 +6604,10 @@ return {
         Utils.notify("FPS", math.floor(1 / dt) .. " fps", Settings)
     end
 }
+end)()
 
 -- === modules/utility/func_161_anti_afk.lua ===
+__RESONANCE["modules/utility/func_161_anti_afk.lua"] = (function()
 -- Func #161: Anti-AFK | toggle
 local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
@@ -6285,8 +6629,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_162_auto_claim_cash.lua ===
+__RESONANCE["modules/utility/func_162_auto_claim_cash.lua"] = (function()
 -- Func #162: Auto Claim Cash | toggle
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -6323,8 +6669,10 @@ return {
     onDisable = function() State.running = false end,
     getStats = function() return { claimed = State.claimed } end
 }
+end)()
 
 -- === modules/utility/func_163_cash_magnet.lua ===
+__RESONANCE["modules/utility/func_163_cash_magnet.lua"] = (function()
 -- Func #163: Cash Magnet | toggle
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -6354,8 +6702,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/utility/func_164_item_magnet.lua ===
+__RESONANCE["modules/utility/func_164_item_magnet.lua"] = (function()
 -- Func #164: Item Magnet | toggle
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -6387,8 +6737,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/utility/func_165_bring_all_items.lua ===
+__RESONANCE["modules/utility/func_165_bring_all_items.lua"] = (function()
 -- Func #165: Bring All Items | button
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -6415,8 +6767,10 @@ return {
         Utils.notify("Resonance", "Собрано: " .. count, Settings)
     end
 }
+end)()
 
 -- === modules/utility/func_166_bring_all_players.lua ===
+__RESONANCE["modules/utility/func_166_bring_all_players.lua"] = (function()
 -- Func #166: Bring All Players | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6437,8 +6791,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_167_clear_workspace.lua ===
+__RESONANCE["modules/utility/func_167_clear_workspace.lua"] = (function()
 -- Func #167: Clear Workspace | button
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -6457,8 +6813,10 @@ return {
         Utils.notify("Resonance", "Удалено: " .. count, Settings)
     end
 }
+end)()
 
 -- === modules/utility/func_168_delete_grabbed.lua ===
+__RESONANCE["modules/utility/func_168_delete_grabbed.lua"] = (function()
 -- Func #168: Delete Grabbed | button
 local Workspace = game:GetService("Workspace")
 
@@ -6473,8 +6831,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_169_unlock_mouse.lua ===
+__RESONANCE["modules/utility/func_169_unlock_mouse.lua"] = (function()
 -- Func #169: Unlock Mouse | toggle
 local UserInputService = game:GetService("UserInputService")
 
@@ -6488,8 +6848,10 @@ return {
         UserInputService.MouseIconEnabled = false
     end
 }
+end)()
 
 -- === modules/utility/func_170_full_screen.lua ===
+__RESONANCE["modules/utility/func_170_full_screen.lua"] = (function()
 -- Func #170: Full Screen | toggle
 local UserInputService = game:GetService("UserInputService")
 
@@ -6503,8 +6865,10 @@ return {
         UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
     end
 }
+end)()
 
 -- === modules/utility/func_171_copy_position.lua ===
+__RESONANCE["modules/utility/func_171_copy_position.lua"] = (function()
 -- Func #171: Copy Position | button
 return {
     id = "CopyPosition", type = "button", name = "Copy Position",
@@ -6517,8 +6881,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_172_copy_rotation.lua ===
+__RESONANCE["modules/utility/func_172_copy_rotation.lua"] = (function()
 -- Func #172: Copy Rotation | button
 return {
     id = "CopyRotation", type = "button", name = "Copy Rotation",
@@ -6531,8 +6897,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_173_show_position.lua ===
+__RESONANCE["modules/utility/func_173_show_position.lua"] = (function()
 -- Func #173: Show Position | button
 return {
     id = "ShowPosition", type = "button", name = "Show Position",
@@ -6544,8 +6912,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_174_print_character.lua ===
+__RESONANCE["modules/utility/func_174_print_character.lua"] = (function()
 -- Func #174: Print Character Tree | button
 return {
     id = "PrintCharacter", type = "button", name = "Print Character Tree",
@@ -6560,8 +6930,10 @@ return {
         Utils.notify("Resonance", "Дерево выведено в консоль", Settings)
     end
 }
+end)()
 
 -- === modules/utility/func_175_clear_notifications.lua ===
+__RESONANCE["modules/utility/func_175_clear_notifications.lua"] = (function()
 -- Func #175: Clear Notifications | button
 local StarterGui = game:GetService("StarterGui")
 
@@ -6578,8 +6950,10 @@ return {
         end)
     end
 }
+end)()
 
 -- === modules/utility/func_176_toggle_ui.lua ===
+__RESONANCE["modules/utility/func_176_toggle_ui.lua"] = (function()
 -- Func #176: Toggle UI | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6595,8 +6969,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_177_re_execute.lua ===
+__RESONANCE["modules/utility/func_177_re_execute.lua"] = (function()
 -- Func #177: Re-execute Script | button
 return {
     id = "ReExecute", type = "button", name = "Re-execute Script",
@@ -6611,8 +6987,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_178_reload_config.lua ===
+__RESONANCE["modules/utility/func_178_reload_config.lua"] = (function()
 -- Func #178: Reload Config | button
 return {
     id = "ReloadConfig", type = "button", name = "Reload Config",
@@ -6629,8 +7007,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_179_save_config.lua ===
+__RESONANCE["modules/utility/func_179_save_config.lua"] = (function()
 -- Func #179: Save Config | button
 return {
     id = "SaveConfig", type = "button", name = "Save Config",
@@ -6647,8 +7027,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/utility/func_180_wipe_cache.lua ===
+__RESONANCE["modules/utility/func_180_wipe_cache.lua"] = (function()
 -- Func #180: Wipe Cache | button
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -6674,8 +7056,10 @@ return {
         Utils.notify("Resonance", "Очищено: " .. count, Settings)
     end
 }
+end)()
 
 -- === modules/trolling/func_181_music_play.lua ===
+__RESONANCE["modules/trolling/func_181_music_play.lua"] = (function()
 -- Func #181: Music Play | button
 local Debris = game:GetService("Debris")
 
@@ -6690,8 +7074,10 @@ return {
         Debris:AddItem(s, 30)
     end
 }
+end)()
 
 -- === modules/trolling/func_182_reverse_controls.lua ===
+__RESONANCE["modules/trolling/func_182_reverse_controls.lua"] = (function()
 -- Func #182: Reverse Controls | toggle
 local State = { running = false }
 
@@ -6712,8 +7098,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/trolling/func_183_fling_random_aura.lua ===
+__RESONANCE["modules/trolling/func_183_fling_random_aura.lua"] = (function()
 -- Func #183: Fling Random Aura | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6746,8 +7134,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/trolling/func_184_rainbow_all.lua ===
+__RESONANCE["modules/trolling/func_184_rainbow_all.lua"] = (function()
 -- Func #184: Rainbow All | button
 local Players = game:GetService("Players")
 
@@ -6766,8 +7156,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_185_neon_all.lua ===
+__RESONANCE["modules/trolling/func_185_neon_all.lua"] = (function()
 -- Func #185: Neon All | button
 local Players = game:GetService("Players")
 
@@ -6786,8 +7178,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_186_shrink_all.lua ===
+__RESONANCE["modules/trolling/func_186_shrink_all.lua"] = (function()
 -- Func #186: Shrink All | button
 local Players = game:GetService("Players")
 
@@ -6807,8 +7201,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_187_grow_all.lua ===
+__RESONANCE["modules/trolling/func_187_grow_all.lua"] = (function()
 -- Func #187: Grow All | button
 local Players = game:GetService("Players")
 
@@ -6828,8 +7224,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_188_head_spin_all.lua ===
+__RESONANCE["modules/trolling/func_188_head_spin_all.lua"] = (function()
 -- Func #188: Head Spin All | button
 local Players = game:GetService("Players")
 local Debris = game:GetService("Debris")
@@ -6852,8 +7250,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_189_random_color_self.lua ===
+__RESONANCE["modules/trolling/func_189_random_color_self.lua"] = (function()
 -- Func #189: Random Color Self | button
 return {
     id = "RandomColorSelf", type = "button", name = "Random Color Self",
@@ -6868,8 +7268,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_190_rainbow_self.lua ===
+__RESONANCE["modules/trolling/func_190_rainbow_self.lua"] = (function()
 -- Func #190: Rainbow Self | toggle
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -6899,8 +7301,10 @@ return {
         if State.conn then State.conn:Disconnect(); State.conn = nil end
     end
 }
+end)()
 
 -- === modules/trolling/func_191_neon_self.lua ===
+__RESONANCE["modules/trolling/func_191_neon_self.lua"] = (function()
 -- Func #191: Neon Self | button
 return {
     id = "NeonSelf", type = "button", name = "Neon Self",
@@ -6913,8 +7317,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_192_ghost_self.lua ===
+__RESONANCE["modules/trolling/func_192_ghost_self.lua"] = (function()
 -- Func #192: Ghost Self | button
 return {
     id = "GhostSelf", type = "button", name = "Ghost Self",
@@ -6927,8 +7333,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_193_invisible_self.lua ===
+__RESONANCE["modules/trolling/func_193_invisible_self.lua"] = (function()
 -- Func #193: Invisible Self | button
 return {
     id = "InvisibleSelf", type = "button", name = "Invisible Self",
@@ -6950,8 +7358,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_194_visible_self.lua ===
+__RESONANCE["modules/trolling/func_194_visible_self.lua"] = (function()
 -- Func #194: Visible Self | button
 return {
     id = "VisibleSelf", type = "button", name = "Visible Self",
@@ -6964,8 +7374,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_195_shake_screen_all.lua ===
+__RESONANCE["modules/trolling/func_195_shake_screen_all.lua"] = (function()
 -- Func #195: Shake Screen All | toggle
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -6993,8 +7405,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/trolling/func_196_fake_death_all.lua ===
+__RESONANCE["modules/trolling/func_196_fake_death_all.lua"] = (function()
 -- Func #196: Fake Death All | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -7016,8 +7430,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/trolling/func_197_fire_trail.lua ===
+__RESONANCE["modules/trolling/func_197_fire_trail.lua"] = (function()
 -- Func #197: Fire Trail | toggle
 local Debris = game:GetService("Debris")
 local State = { running = false }
@@ -7040,8 +7456,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/trolling/func_198_ice_trail.lua ===
+__RESONANCE["modules/trolling/func_198_ice_trail.lua"] = (function()
 -- Func #198: Ice Trail | toggle
 local Debris = game:GetService("Debris")
 local State = { running = false }
@@ -7066,8 +7484,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/trolling/func_199_lightning_self.lua ===
+__RESONANCE["modules/trolling/func_199_lightning_self.lua"] = (function()
 -- Func #199: Lightning Self | toggle
 local Debris = game:GetService("Debris")
 local State = { running = false }
@@ -7091,8 +7511,10 @@ return {
     end,
     onDisable = function() State.running = false end
 }
+end)()
 
 -- === modules/trolling/func_200_dance_all.lua ===
+__RESONANCE["modules/trolling/func_200_dance_all.lua"] = (function()
 -- Func #200: Dance All | button
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -7120,8 +7542,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/animations/func_201_play_dance.lua ===
+__RESONANCE["modules/animations/func_201_play_dance.lua"] = (function()
 -- Func #201: Танец
 -- Категория: Animations | Тип: button
 
@@ -7166,8 +7590,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_202_play_wave.lua ===
+__RESONANCE["modules/animations/func_202_play_wave.lua"] = (function()
 -- Func #202: Приветствие
 -- Категория: Animations | Тип: button
 
@@ -7212,8 +7638,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_203_play_point.lua ===
+__RESONANCE["modules/animations/func_203_play_point.lua"] = (function()
 -- Func #203: Указать
 -- Категория: Animations | Тип: button
 
@@ -7258,8 +7686,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_204_play_laugh.lua ===
+__RESONANCE["modules/animations/func_204_play_laugh.lua"] = (function()
 -- Func #204: Смех
 -- Категория: Animations | Тип: button
 
@@ -7304,8 +7734,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_205_play_cheer.lua ===
+__RESONANCE["modules/animations/func_205_play_cheer.lua"] = (function()
 -- Func #205: Радость
 -- Категория: Animations | Тип: button
 
@@ -7350,8 +7782,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_206_play_floss.lua ===
+__RESONANCE["modules/animations/func_206_play_floss.lua"] = (function()
 -- Func #206: Флосс
 -- Категория: Animations | Тип: button
 
@@ -7396,8 +7830,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_207_play_dab.lua ===
+__RESONANCE["modules/animations/func_207_play_dab.lua"] = (function()
 -- Func #207: Даб
 -- Категория: Animations | Тип: button
 
@@ -7442,8 +7878,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_208_play_russian.lua ===
+__RESONANCE["modules/animations/func_208_play_russian.lua"] = (function()
 -- Func #208: Русский танец
 -- Категория: Animations | Тип: button
 
@@ -7488,8 +7926,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_209_play_karate.lua ===
+__RESONANCE["modules/animations/func_209_play_karate.lua"] = (function()
 -- Func #209: Каратэ
 -- Категория: Animations | Тип: button
 
@@ -7534,8 +7974,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_210_play_salsa.lua ===
+__RESONANCE["modules/animations/func_210_play_salsa.lua"] = (function()
 -- Func #210: Сальса
 -- Категория: Animations | Тип: button
 
@@ -7580,8 +8022,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_211_play_hiphop.lua ===
+__RESONANCE["modules/animations/func_211_play_hiphop.lua"] = (function()
 -- Func #211: Хип-хоп
 -- Категория: Animations | Тип: button
 
@@ -7626,8 +8070,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_212_play_breakdance.lua ===
+__RESONANCE["modules/animations/func_212_play_breakdance.lua"] = (function()
 -- Func #212: Брейк-данс
 -- Категория: Animations | Тип: button
 
@@ -7672,8 +8118,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_213_play_robot.lua ===
+__RESONANCE["modules/animations/func_213_play_robot.lua"] = (function()
 -- Func #213: Робот
 -- Категория: Animations | Тип: button
 
@@ -7718,8 +8166,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_214_play_backflip.lua ===
+__RESONANCE["modules/animations/func_214_play_backflip.lua"] = (function()
 -- Func #214: Сальто назад
 -- Категория: Animations | Тип: button
 
@@ -7764,8 +8214,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_215_play_frontflip.lua ===
+__RESONANCE["modules/animations/func_215_play_frontflip.lua"] = (function()
 -- Func #215: Сальто вперёд
 -- Категория: Animations | Тип: button
 
@@ -7810,8 +8262,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_216_play_sit.lua ===
+__RESONANCE["modules/animations/func_216_play_sit.lua"] = (function()
 -- Func #216: Сесть
 -- Категория: Animations | Тип: button
 
@@ -7856,8 +8310,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_217_play_lay.lua ===
+__RESONANCE["modules/animations/func_217_play_lay.lua"] = (function()
 -- Func #217: Лечь
 -- Категория: Animations | Тип: button
 
@@ -7902,8 +8358,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_218_play_crawl.lua ===
+__RESONANCE["modules/animations/func_218_play_crawl.lua"] = (function()
 -- Func #218: Ползти
 -- Категория: Animations | Тип: button
 
@@ -7948,8 +8406,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_219_play_sprint_anim.lua ===
+__RESONANCE["modules/animations/func_219_play_sprint_anim.lua"] = (function()
 -- Func #219: Бег (анимация)
 -- Категория: Animations | Тип: button
 
@@ -7994,8 +8454,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_220_play_swim.lua ===
+__RESONANCE["modules/animations/func_220_play_swim.lua"] = (function()
 -- Func #220: Плавать
 -- Категория: Animations | Тип: button
 
@@ -8040,8 +8502,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_221_play_climb.lua ===
+__RESONANCE["modules/animations/func_221_play_climb.lua"] = (function()
 -- Func #221: Карабкаться
 -- Категория: Animations | Тип: button
 
@@ -8086,8 +8550,10 @@ return {
     tab     = "Animations",
     onClick = playAnim
 }
+end)()
 
 -- === modules/animations/func_222_stop_all_anims.lua ===
+__RESONANCE["modules/animations/func_222_stop_all_anims.lua"] = (function()
 -- Func #222: Stop All Anims
 -- Категория: Animations | Тип: button
 
@@ -8106,8 +8572,10 @@ return {
         _G.ResonanceCurrentAnim = nil
     end
 }
+end)()
 
 -- === modules/animations/func_223_free_anims_off.lua ===
+__RESONANCE["modules/animations/func_223_free_anims_off.lua"] = (function()
 -- Func #223: Free Animations Off
 -- Категория: Animations | Тип: toggle
 -- Отключает стандартные анимации движения
@@ -8135,8 +8603,10 @@ return {
         if animate then animate.Disabled = false end
     end
 }
+end)()
 
 -- === modules/animations/func_224_anim_speed_up.lua ===
+__RESONANCE["modules/animations/func_224_anim_speed_up.lua"] = (function()
 -- Func #224: Anim Speed Up
 -- Категория: Animations | Тип: button
 
@@ -8156,8 +8626,10 @@ return {
         Utils.notify("Resonance", "Anim Speed: " .. Settings.AnimSpeed .. "x", Settings)
     end
 }
+end)()
 
 -- === modules/animations/func_225_anim_slow_down.lua ===
+__RESONANCE["modules/animations/func_225_anim_slow_down.lua"] = (function()
 -- Func #225: Anim Slow Down
 -- Категория: Animations | Тип: button
 
@@ -8177,8 +8649,10 @@ return {
         Utils.notify("Resonance", "Anim Speed: " .. Settings.AnimSpeed .. "x", Settings)
     end
 }
+end)()
 
 -- === modules/kick/func_226_kick_all.lua ===
+__RESONANCE["modules/kick/func_226_kick_all.lua"] = (function()
 -- Func #226: Kick All
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -8232,8 +8706,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_227_kick_closest.lua ===
+__RESONANCE["modules/kick/func_227_kick_closest.lua"] = (function()
 -- Func #227: Kick Closest
 -- Категория: Kick | Тип: button
 
@@ -8301,8 +8777,10 @@ return {
         if not fireKick(target, Settings.KickReason) then pseudoKick(target) end
     end
 }
+end)()
 
 -- === modules/kick/func_228_kick_random.lua ===
+__RESONANCE["modules/kick/func_228_kick_random.lua"] = (function()
 -- Func #228: Kick Random
 -- Категория: Kick | Тип: button
 
@@ -8371,8 +8849,10 @@ return {
         if not fireKick(target, Settings.KickReason) then pseudoKick(target) end
     end
 }
+end)()
 
 -- === modules/kick/func_229_kick_by_name.lua ===
+__RESONANCE["modules/kick/func_229_kick_by_name.lua"] = (function()
 -- Func #229: Kick By Name
 -- Категория: Kick | Тип: button
 
@@ -8440,8 +8920,10 @@ return {
         if not fireKick(target, Settings.KickReason) then pseudoKick(target) end
     end
 }
+end)()
 
 -- === modules/kick/func_230_kick_farthest.lua ===
+__RESONANCE["modules/kick/func_230_kick_farthest.lua"] = (function()
 -- Func #230: Kick Farthest
 -- Категория: Kick | Тип: button
 
@@ -8509,8 +8991,10 @@ return {
         if not fireKick(target, Settings.KickReason) then pseudoKick(target) end
     end
 }
+end)()
 
 -- === modules/kick/func_231_kick_lowest_hp.lua ===
+__RESONANCE["modules/kick/func_231_kick_lowest_hp.lua"] = (function()
 -- Func #231: Kick Lowest HP
 -- Категория: Kick | Тип: button
 
@@ -8585,8 +9069,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_232_kick_highest_hp.lua ===
+__RESONANCE["modules/kick/func_232_kick_highest_hp.lua"] = (function()
 -- Func #232: Kick Highest HP
 -- Категория: Kick | Тип: button
 
@@ -8661,8 +9147,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_233_kick_friend.lua ===
+__RESONANCE["modules/kick/func_233_kick_friend.lua"] = (function()
 -- Func #233: Kick Friend
 -- Категория: Kick | Тип: button
 
@@ -8736,8 +9224,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_234_kick_non_friend.lua ===
+__RESONANCE["modules/kick/func_234_kick_non_friend.lua"] = (function()
 -- Func #234: Kick Non-Friend
 -- Категория: Kick | Тип: button
 
@@ -8811,8 +9301,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_235_kick_team.lua ===
+__RESONANCE["modules/kick/func_235_kick_team.lua"] = (function()
 -- Func #235: Kick Team
 -- Категория: Kick | Тип: button
 
@@ -8882,8 +9374,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_236_kick_enemy_team.lua ===
+__RESONANCE["modules/kick/func_236_kick_enemy_team.lua"] = (function()
 -- Func #236: Kick Enemy Team
 -- Категория: Kick | Тип: button
 
@@ -8953,8 +9447,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_237_kick_afk.lua ===
+__RESONANCE["modules/kick/func_237_kick_afk.lua"] = (function()
 -- Func #237: Kick AFK
 -- Категория: Kick | Тип: button
 
@@ -9027,8 +9523,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_238_kick_talking.lua ===
+__RESONANCE["modules/kick/func_238_kick_talking.lua"] = (function()
 -- Func #238: Kick Talking
 -- Категория: Kick | Тип: button
 
@@ -9101,8 +9599,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_239_kick_silent.lua ===
+__RESONANCE["modules/kick/func_239_kick_silent.lua"] = (function()
 -- Func #239: Kick Silent
 -- Категория: Kick | Тип: button
 
@@ -9174,8 +9674,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_240_kick_walking.lua ===
+__RESONANCE["modules/kick/func_240_kick_walking.lua"] = (function()
 -- Func #240: Kick Walking
 -- Категория: Kick | Тип: button
 
@@ -9248,8 +9750,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_241_kick_standing.lua ===
+__RESONANCE["modules/kick/func_241_kick_standing.lua"] = (function()
 -- Func #241: Kick Standing
 -- Категория: Kick | Тип: button
 
@@ -9322,8 +9826,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_242_kick_jumping.lua ===
+__RESONANCE["modules/kick/func_242_kick_jumping.lua"] = (function()
 -- Func #242: Kick Jumping
 -- Категория: Kick | Тип: button
 
@@ -9396,8 +9902,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_243_kick_flying.lua ===
+__RESONANCE["modules/kick/func_243_kick_flying.lua"] = (function()
 -- Func #243: Kick Flying
 -- Категория: Kick | Тип: button
 
@@ -9470,8 +9978,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_244_kick_glitched.lua ===
+__RESONANCE["modules/kick/func_244_kick_glitched.lua"] = (function()
 -- Func #244: Kick Glitched
 -- Категория: Kick | Тип: button
 
@@ -9544,8 +10054,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_245_kick_invisible.lua ===
+__RESONANCE["modules/kick/func_245_kick_invisible.lua"] = (function()
 -- Func #245: Kick Invisible
 -- Категория: Kick | Тип: button
 
@@ -9618,8 +10130,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_246_kick_visible.lua ===
+__RESONANCE["modules/kick/func_246_kick_visible.lua"] = (function()
 -- Func #246: Kick Visible
 -- Категория: Kick | Тип: button
 
@@ -9692,8 +10206,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_247_kick_high_ping.lua ===
+__RESONANCE["modules/kick/func_247_kick_high_ping.lua"] = (function()
 -- Func #247: Kick High Ping
 -- Категория: Kick | Тип: button
 
@@ -9768,8 +10284,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_248_kick_low_ping.lua ===
+__RESONANCE["modules/kick/func_248_kick_low_ping.lua"] = (function()
 -- Func #248: Kick Low Ping
 -- Категория: Kick | Тип: button
 
@@ -9844,8 +10362,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_249_kick_mobile.lua ===
+__RESONANCE["modules/kick/func_249_kick_mobile.lua"] = (function()
 -- Func #249: Kick Mobile
 -- Категория: Kick | Тип: button
 
@@ -9918,8 +10438,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_250_kick_pc.lua ===
+__RESONANCE["modules/kick/func_250_kick_pc.lua"] = (function()
 -- Func #250: Kick PC
 -- Категория: Kick | Тип: button
 
@@ -9991,8 +10513,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_251_kick_console.lua ===
+__RESONANCE["modules/kick/func_251_kick_console.lua"] = (function()
 -- Func #251: Kick Console
 -- Категория: Kick | Тип: button
 
@@ -10065,8 +10589,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_252_kick_vr.lua ===
+__RESONANCE["modules/kick/func_252_kick_vr.lua"] = (function()
 -- Func #252: Kick VR
 -- Категория: Kick | Тип: button
 
@@ -10139,8 +10665,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_253_kick_guest.lua ===
+__RESONANCE["modules/kick/func_253_kick_guest.lua"] = (function()
 -- Func #253: Kick Guest
 -- Категория: Kick | Тип: button
 
@@ -10210,8 +10738,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_254_kick_premium.lua ===
+__RESONANCE["modules/kick/func_254_kick_premium.lua"] = (function()
 -- Func #254: Kick Premium
 -- Категория: Kick | Тип: button
 
@@ -10281,8 +10811,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_255_kick_non_premium.lua ===
+__RESONANCE["modules/kick/func_255_kick_non_premium.lua"] = (function()
 -- Func #255: Kick Non-Premium
 -- Категория: Kick | Тип: button
 
@@ -10352,8 +10884,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_256_kick_verified.lua ===
+__RESONANCE["modules/kick/func_256_kick_verified.lua"] = (function()
 -- Func #256: Kick Verified
 -- Категория: Kick | Тип: button
 
@@ -10423,8 +10957,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_257_kick_non_verified.lua ===
+__RESONANCE["modules/kick/func_257_kick_non_verified.lua"] = (function()
 -- Func #257: Kick Non-Verified
 -- Категория: Kick | Тип: button
 
@@ -10494,8 +11030,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_258_kick_with_hats.lua ===
+__RESONANCE["modules/kick/func_258_kick_with_hats.lua"] = (function()
 -- Func #258: Kick With Hats
 -- Категория: Kick | Тип: button
 
@@ -10571,8 +11109,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_259_kick_without_hats.lua ===
+__RESONANCE["modules/kick/func_259_kick_without_hats.lua"] = (function()
 -- Func #259: Kick Without Hats
 -- Категория: Kick | Тип: button
 
@@ -10648,8 +11188,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_260_kick_with_tools.lua ===
+__RESONANCE["modules/kick/func_260_kick_with_tools.lua"] = (function()
 -- Func #260: Kick With Tools
 -- Категория: Kick | Тип: button
 
@@ -10719,8 +11261,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_261_kick_without_tools.lua ===
+__RESONANCE["modules/kick/func_261_kick_without_tools.lua"] = (function()
 -- Func #261: Kick Without Tools
 -- Категория: Kick | Тип: button
 
@@ -10790,8 +11334,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_262_kick_rich.lua ===
+__RESONANCE["modules/kick/func_262_kick_rich.lua"] = (function()
 -- Func #262: Kick Rich
 -- Категория: Kick | Тип: button
 
@@ -10864,8 +11410,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_263_kick_poor.lua ===
+__RESONANCE["modules/kick/func_263_kick_poor.lua"] = (function()
 -- Func #263: Kick Poor
 -- Категория: Kick | Тип: button
 
@@ -10938,8 +11486,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_264_kick_high_level.lua ===
+__RESONANCE["modules/kick/func_264_kick_high_level.lua"] = (function()
 -- Func #264: Kick High Level
 -- Категория: Kick | Тип: button
 
@@ -11012,8 +11562,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_265_kick_low_level.lua ===
+__RESONANCE["modules/kick/func_265_kick_low_level.lua"] = (function()
 -- Func #265: Kick Low Level
 -- Категория: Kick | Тип: button
 
@@ -11086,8 +11638,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_266_kick_owner.lua ===
+__RESONANCE["modules/kick/func_266_kick_owner.lua"] = (function()
 -- Func #266: Kick Owner
 -- Категория: Kick | Тип: button
 
@@ -11158,8 +11712,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_267_kick_admin.lua ===
+__RESONANCE["modules/kick/func_267_kick_admin.lua"] = (function()
 -- Func #267: Kick Admin
 -- Категория: Kick | Тип: button
 
@@ -11234,8 +11790,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_268_kick_moderator.lua ===
+__RESONANCE["modules/kick/func_268_kick_moderator.lua"] = (function()
 -- Func #268: Kick Moderator
 -- Категория: Kick | Тип: button
 
@@ -11312,8 +11870,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_269_kick_staff.lua ===
+__RESONANCE["modules/kick/func_269_kick_staff.lua"] = (function()
 -- Func #269: Kick Staff
 -- Категория: Kick | Тип: button
 
@@ -11390,8 +11950,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_270_kick_bots.lua ===
+__RESONANCE["modules/kick/func_270_kick_bots.lua"] = (function()
 -- Func #270: Kick Bots
 -- Категория: Kick | Тип: button
 
@@ -11463,8 +12025,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_271_kick_alts.lua ===
+__RESONANCE["modules/kick/func_271_kick_alts.lua"] = (function()
 -- Func #271: Kick Alts
 -- Категория: Kick | Тип: button
 
@@ -11534,8 +12098,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_272_kick_by_userid.lua ===
+__RESONANCE["modules/kick/func_272_kick_by_userid.lua"] = (function()
 -- Func #272: Kick By UserID
 -- Категория: Kick | Тип: button
 
@@ -11607,8 +12173,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_273_kick_by_display_name.lua ===
+__RESONANCE["modules/kick/func_273_kick_by_display_name.lua"] = (function()
 -- Func #273: Kick By DisplayName
 -- Категория: Kick | Тип: button
 
@@ -11680,8 +12248,10 @@ return {
         end
     end
 }
+end)()
 
 -- === modules/kick/func_274_kick_multiple.lua ===
+__RESONANCE["modules/kick/func_274_kick_multiple.lua"] = (function()
 -- Func #274: Kick Multiple
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -11736,8 +12306,10 @@ return {
         Utils.notify("Kick", "Кикнуто: " .. count, Settings)
     end
 }
+end)()
 
 -- === modules/kick/func_275_kick_blacklist.lua ===
+__RESONANCE["modules/kick/func_275_kick_blacklist.lua"] = (function()
 -- Func #275: Kick Blacklist
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -11795,8 +12367,10 @@ return {
         end
     end
 }
+end)()
 
 -- === runtime.lua ===
+__RESONANCE["runtime.lua"] = (function()
 -- ============================================================
 -- Resonance v4.0 — runtime.lua
 -- Глобальные обработчики: RGB bind, Anti-AFK, авто-респавн
@@ -11908,9 +12482,329 @@ _G.ResonanceRuntime = {
 }
 
 log("Runtime полностью загружен")
+end)()
 
+-- ============================================================
+-- Инициализация: собираем Registry из загруженных модулей
+-- ============================================================
 
--- Авто-запуск через init логику
+local function getMod(path)
+    return __RESONANCE[path]
+end
+
+_G.ResonanceUtils     = getMod('core/utils.lua')
+_G.ResonanceLoop      = getMod('core/loop.lua')
+_G.ResonanceKeybind   = getMod('core/keybind.lua')
+_G.ResonanceConfig    = getMod('core/config.lua')
+_G.ResonanceRGB       = getMod('core/rgb.lua')
+_G.ResonanceManifest  = getMod('core/manifest.lua')
+_G.ResonanceResolver  = getMod('core/remote_resolver.lua')
+_G.ResonanceSettings  = getMod('core/settings/init.lua')
+
+-- Registry: категория → массив модулей
+local Registry = {
+    Combat = {}, Auras = {}, Protection = {}, Targeting = {},
+    Movement = {}, Visuals = {}, Server = {}, Utility = {},
+    Trolling = {}, Animations = {}, Kick = {}
+}
+for _, path in ipairs({
+    "modules/combat/func_001_super_throw.lua",
+    "modules/combat/func_002_massless_grab.lua",
+    "modules/combat/func_003_freeze_grab.lua",
+    "modules/combat/func_004_silent_aim.lua",
+    "modules/combat/func_005_aimbot.lua",
+    "modules/combat/func_006_telekinesis.lua",
+    "modules/combat/func_007_auto_throw.lua",
+    "modules/combat/func_008_kill_aura.lua",
+    "modules/combat/func_009_hitbox_expander.lua",
+    "modules/combat/func_010_wall_bang.lua",
+    "modules/combat/func_011_rapid_fire.lua",
+    "modules/combat/func_012_no_recoil.lua",
+    "modules/combat/func_013_fling_all.lua",
+    "modules/combat/func_014_fling_random.lua",
+    "modules/combat/func_015_fling_closest.lua",
+    "modules/combat/func_016_kill_all.lua",
+    "modules/combat/func_017_kill_closest.lua",
+    "modules/combat/func_018_kill_random.lua",
+    "modules/combat/func_019_burn_all.lua",
+    "modules/combat/func_020_burn_closest.lua",
+    "modules/combat/func_021_freeze_all.lua",
+    "modules/combat/func_022_unfreeze_all.lua",
+    "modules/combat/func_023_ragdoll_all.lua",
+    "modules/combat/func_024_explode_all.lua",
+    "modules/combat/func_025_void_all.lua",
+    "modules/combat/func_026_sky_all.lua",
+    "modules/combat/func_027_shake_all.lua",
+    "modules/combat/func_028_spin_all.lua",
+    "modules/combat/func_029_slow_all.lua",
+    "modules/combat/func_030_speed_all.lua",
+    "modules/combat/func_031_jump_all.lua",
+    "modules/combat/func_032_reset_all.lua",
+    "modules/combat/func_033_anchor_all.lua",
+    "modules/combat/func_034_unanchor_all.lua",
+    "modules/combat/func_035_shirt_off_all.lua",
+    "modules/combat/func_036_pants_off_all.lua",
+    "modules/combat/func_037_hats_off_all.lua",
+    "modules/combat/func_038_drop_tools_all.lua",
+    "modules/combat/func_039_forcefield_off_all.lua",
+    "modules/combat/func_040_character_reset.lua",
+    "modules/auras/func_041_fling_aura.lua",
+    "modules/auras/func_042_kill_aura.lua",
+    "modules/auras/func_043_freeze_aura.lua",
+    "modules/auras/func_044_fire_aura.lua",
+    "modules/auras/func_045_void_aura.lua",
+    "modules/auras/func_046_attraction_aura.lua",
+    "modules/auras/func_047_auto_counter.lua",
+    "modules/auras/func_048_plot_kicker.lua",
+    "modules/auras/func_049_gravity_aura.lua",
+    "modules/auras/func_050_spin_aura.lua",
+    "modules/auras/func_051_damage_aura.lua",
+    "modules/auras/func_052_slow_aura.lua",
+    "modules/auras/func_053_ragdoll_aura.lua",
+    "modules/auras/func_054_teleport_aura.lua",
+    "modules/auras/func_055_blind_aura.lua",
+    "modules/auras/func_056_kick_aura.lua",
+    "modules/auras/func_057_confuse_aura.lua",
+    "modules/auras/func_058_mute_aura.lua",
+    "modules/auras/func_059_shrink_aura.lua",
+    "modules/auras/func_060_grow_aura.lua",
+    "modules/protection/func_061_anti_grab.lua",
+    "modules/protection/func_062_anti_fling.lua",
+    "modules/protection/func_063_anti_freeze.lua",
+    "modules/protection/func_064_anti_ragdoll.lua",
+    "modules/protection/func_065_anti_void.lua",
+    "modules/protection/func_066_anti_vote_kick.lua",
+    "modules/protection/func_067_anti_kick.lua",
+    "modules/protection/func_068_anti_teleport.lua",
+    "modules/protection/func_069_anti_sit.lua",
+    "modules/protection/func_070_anti_burn.lua",
+    "modules/protection/func_071_anti_explosion.lua",
+    "modules/protection/func_072_anti_damage.lua",
+    "modules/protection/func_073_anti_slow.lua",
+    "modules/protection/func_074_anti_fire_touch.lua",
+    "modules/protection/func_075_anti_gravity.lua",
+    "modules/protection/func_076_anti_shrink.lua",
+    "modules/protection/func_077_noclip.lua",
+    "modules/protection/func_078_infinite_yield.lua",
+    "modules/protection/func_079_god_mode.lua",
+    "modules/protection/func_080_rejoin_on_damage.lua",
+    "modules/targeting/func_081_loop_kill.lua",
+    "modules/targeting/func_082_loop_burn.lua",
+    "modules/targeting/func_083_loop_fling.lua",
+    "modules/targeting/func_084_loop_freeze.lua",
+    "modules/targeting/func_085_loop_void.lua",
+    "modules/targeting/func_086_follow_target.lua",
+    "modules/targeting/func_087_view_target.lua",
+    "modules/targeting/func_088_tp_to_target.lua",
+    "modules/targeting/func_089_tp_target_to_me.lua",
+    "modules/targeting/func_090_kill_target.lua",
+    "modules/targeting/func_091_fling_target.lua",
+    "modules/targeting/func_092_freeze_target.lua",
+    "modules/targeting/func_093_void_target.lua",
+    "modules/targeting/func_094_sky_target.lua",
+    "modules/targeting/func_095_spin_target.lua",
+    "modules/targeting/func_096_orbit_target.lua",
+    "modules/targeting/func_097_ragdoll_target.lua",
+    "modules/targeting/func_098_blind_target.lua",
+    "modules/targeting/func_099_steal_target_tools.lua",
+    "modules/targeting/func_100_copy_target_skin.lua",
+    "modules/movement/func_101_infinite_jump.lua",
+    "modules/movement/func_102_noclip.lua",
+    "modules/movement/func_103_fly.lua",
+    "modules/movement/func_104_speed_boost.lua",
+    "modules/movement/func_105_high_jump.lua",
+    "modules/movement/func_106_low_gravity.lua",
+    "modules/movement/func_107_zero_gravity.lua",
+    "modules/movement/func_108_auto_jump.lua",
+    "modules/movement/func_109_bunny_hop.lua",
+    "modules/movement/func_110_slide.lua",
+    "modules/movement/func_111_wall_run.lua",
+    "modules/movement/func_112_crouch.lua",
+    "modules/movement/func_113_sprint.lua",
+    "modules/movement/func_114_tp_spawn.lua",
+    "modules/movement/func_115_tp_random_player.lua",
+    "modules/movement/func_116_tp_forward.lua",
+    "modules/movement/func_117_tp_up.lua",
+    "modules/movement/func_118_tp_down.lua",
+    "modules/movement/func_119_tp_cursor.lua",
+    "modules/movement/func_120_reset_speed.lua",
+    "modules/visuals/func_121_esp_boxes.lua",
+    "modules/visuals/func_122_esp_tracers.lua",
+    "modules/visuals/func_123_player_info.lua",
+    "modules/visuals/func_124_name_tags.lua",
+    "modules/visuals/func_125_health_bars.lua",
+    "modules/visuals/func_126_distance_display.lua",
+    "modules/visuals/func_127_skeleton_esp.lua",
+    "modules/visuals/func_128_chams.lua",
+    "modules/visuals/func_129_xray.lua",
+    "modules/visuals/func_130_fullbright.lua",
+    "modules/visuals/func_131_no_fog.lua",
+    "modules/visuals/func_132_remove_textures.lua",
+    "modules/visuals/func_133_blue_sky.lua",
+    "modules/visuals/func_134_red_ambient.lua",
+    "modules/visuals/func_135_green_ambient.lua",
+    "modules/visuals/func_136_rainbow_light.lua",
+    "modules/visuals/func_137_remove_baseplate.lua",
+    "modules/visuals/func_138_remove_lights.lua",
+    "modules/visuals/func_139_restore_lighting.lua",
+    "modules/visuals/func_140_disable_shadows.lua",
+    "modules/server/func_141_rejoin.lua",
+    "modules/server/func_142_server_hop.lua",
+    "modules/server/func_143_join_smallest.lua",
+    "modules/server/func_144_join_largest.lua",
+    "modules/server/func_145_copy_jobid.lua",
+    "modules/server/func_146_copy_placeid.lua",
+    "modules/server/func_147_copy_server_link.lua",
+    "modules/server/func_148_show_server_info.lua",
+    "modules/server/func_149_list_players.lua",
+    "modules/server/func_150_hop_until_empty.lua",
+    "modules/server/func_151_anti_afk.lua",
+    "modules/server/func_152_auto_rejoin_kick.lua",
+    "modules/server/func_153_rejoin_delay.lua",
+    "modules/server/func_154_ping_display.lua",
+    "modules/server/func_155_fps_display.lua",
+    "modules/server/func_156_leave_game.lua",
+    "modules/server/func_157_reset_character.lua",
+    "modules/server/func_158_character_respawn.lua",
+    "modules/server/func_159_unlock_fps.lua",
+    "modules/server/func_160_show_fps.lua",
+    "modules/utility/func_161_anti_afk.lua",
+    "modules/utility/func_162_auto_claim_cash.lua",
+    "modules/utility/func_163_cash_magnet.lua",
+    "modules/utility/func_164_item_magnet.lua",
+    "modules/utility/func_165_bring_all_items.lua",
+    "modules/utility/func_166_bring_all_players.lua",
+    "modules/utility/func_167_clear_workspace.lua",
+    "modules/utility/func_168_delete_grabbed.lua",
+    "modules/utility/func_169_unlock_mouse.lua",
+    "modules/utility/func_170_full_screen.lua",
+    "modules/utility/func_171_copy_position.lua",
+    "modules/utility/func_172_copy_rotation.lua",
+    "modules/utility/func_173_show_position.lua",
+    "modules/utility/func_174_print_character.lua",
+    "modules/utility/func_175_clear_notifications.lua",
+    "modules/utility/func_176_toggle_ui.lua",
+    "modules/utility/func_177_re_execute.lua",
+    "modules/utility/func_178_reload_config.lua",
+    "modules/utility/func_179_save_config.lua",
+    "modules/utility/func_180_wipe_cache.lua",
+    "modules/trolling/func_181_music_play.lua",
+    "modules/trolling/func_182_reverse_controls.lua",
+    "modules/trolling/func_183_fling_random_aura.lua",
+    "modules/trolling/func_184_rainbow_all.lua",
+    "modules/trolling/func_185_neon_all.lua",
+    "modules/trolling/func_186_shrink_all.lua",
+    "modules/trolling/func_187_grow_all.lua",
+    "modules/trolling/func_188_head_spin_all.lua",
+    "modules/trolling/func_189_random_color_self.lua",
+    "modules/trolling/func_190_rainbow_self.lua",
+    "modules/trolling/func_191_neon_self.lua",
+    "modules/trolling/func_192_ghost_self.lua",
+    "modules/trolling/func_193_invisible_self.lua",
+    "modules/trolling/func_194_visible_self.lua",
+    "modules/trolling/func_195_shake_screen_all.lua",
+    "modules/trolling/func_196_fake_death_all.lua",
+    "modules/trolling/func_197_fire_trail.lua",
+    "modules/trolling/func_198_ice_trail.lua",
+    "modules/trolling/func_199_lightning_self.lua",
+    "modules/trolling/func_200_dance_all.lua",
+    "modules/animations/func_201_play_dance.lua",
+    "modules/animations/func_202_play_wave.lua",
+    "modules/animations/func_203_play_point.lua",
+    "modules/animations/func_204_play_laugh.lua",
+    "modules/animations/func_205_play_cheer.lua",
+    "modules/animations/func_206_play_floss.lua",
+    "modules/animations/func_207_play_dab.lua",
+    "modules/animations/func_208_play_russian.lua",
+    "modules/animations/func_209_play_karate.lua",
+    "modules/animations/func_210_play_salsa.lua",
+    "modules/animations/func_211_play_hiphop.lua",
+    "modules/animations/func_212_play_breakdance.lua",
+    "modules/animations/func_213_play_robot.lua",
+    "modules/animations/func_214_play_backflip.lua",
+    "modules/animations/func_215_play_frontflip.lua",
+    "modules/animations/func_216_play_sit.lua",
+    "modules/animations/func_217_play_lay.lua",
+    "modules/animations/func_218_play_crawl.lua",
+    "modules/animations/func_219_play_sprint_anim.lua",
+    "modules/animations/func_220_play_swim.lua",
+    "modules/animations/func_221_play_climb.lua",
+    "modules/animations/func_222_stop_all_anims.lua",
+    "modules/animations/func_223_free_anims_off.lua",
+    "modules/animations/func_224_anim_speed_up.lua",
+    "modules/animations/func_225_anim_slow_down.lua",
+    "modules/kick/func_226_kick_all.lua",
+    "modules/kick/func_227_kick_closest.lua",
+    "modules/kick/func_228_kick_random.lua",
+    "modules/kick/func_229_kick_by_name.lua",
+    "modules/kick/func_230_kick_farthest.lua",
+    "modules/kick/func_231_kick_lowest_hp.lua",
+    "modules/kick/func_232_kick_highest_hp.lua",
+    "modules/kick/func_233_kick_friend.lua",
+    "modules/kick/func_234_kick_non_friend.lua",
+    "modules/kick/func_235_kick_team.lua",
+    "modules/kick/func_236_kick_enemy_team.lua",
+    "modules/kick/func_237_kick_afk.lua",
+    "modules/kick/func_238_kick_talking.lua",
+    "modules/kick/func_239_kick_silent.lua",
+    "modules/kick/func_240_kick_walking.lua",
+    "modules/kick/func_241_kick_standing.lua",
+    "modules/kick/func_242_kick_jumping.lua",
+    "modules/kick/func_243_kick_flying.lua",
+    "modules/kick/func_244_kick_glitched.lua",
+    "modules/kick/func_245_kick_invisible.lua",
+    "modules/kick/func_246_kick_visible.lua",
+    "modules/kick/func_247_kick_high_ping.lua",
+    "modules/kick/func_248_kick_low_ping.lua",
+    "modules/kick/func_249_kick_mobile.lua",
+    "modules/kick/func_250_kick_pc.lua",
+    "modules/kick/func_251_kick_console.lua",
+    "modules/kick/func_252_kick_vr.lua",
+    "modules/kick/func_253_kick_guest.lua",
+    "modules/kick/func_254_kick_premium.lua",
+    "modules/kick/func_255_kick_non_premium.lua",
+    "modules/kick/func_256_kick_verified.lua",
+    "modules/kick/func_257_kick_non_verified.lua",
+    "modules/kick/func_258_kick_with_hats.lua",
+    "modules/kick/func_259_kick_without_hats.lua",
+    "modules/kick/func_260_kick_with_tools.lua",
+    "modules/kick/func_261_kick_without_tools.lua",
+    "modules/kick/func_262_kick_rich.lua",
+    "modules/kick/func_263_kick_poor.lua",
+    "modules/kick/func_264_kick_high_level.lua",
+    "modules/kick/func_265_kick_low_level.lua",
+    "modules/kick/func_266_kick_owner.lua",
+    "modules/kick/func_267_kick_admin.lua",
+    "modules/kick/func_268_kick_moderator.lua",
+    "modules/kick/func_269_kick_staff.lua",
+    "modules/kick/func_270_kick_bots.lua",
+    "modules/kick/func_271_kick_alts.lua",
+    "modules/kick/func_272_kick_by_userid.lua",
+    "modules/kick/func_273_kick_by_display_name.lua",
+    "modules/kick/func_274_kick_multiple.lua",
+    "modules/kick/func_275_kick_blacklist.lua",
+}) do
+    local mod = getMod(path)
+    if mod then
+        local cat = path:match('^modules/([^/]+)/')
+        if cat then
+            local key = cat:sub(1,1):upper() .. cat:sub(2)
+            if Registry[key] then table.insert(Registry[key], mod) end
+        end
+    end
+end
+_G.ResonanceRegistry = Registry
+
+-- UI
+pcall(function()
+    local uiBuild = getMod('ui/build.lua')
+end)
+
+-- Runtime
+pcall(function()
+    local rt = getMod('runtime.lua')
+end)
+
 print('============================================')
 print('[Resonance] Bundled script loaded')
 print('[Resonance] Modules: 287 | Failed: 0')
